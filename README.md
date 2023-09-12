@@ -22,6 +22,7 @@ O projeto desenvolvido na disciplina Engenharia de Software do semestre 2023.2 �
 - [x] RF05 - Visualizar tela específica da publicação. - [Rafael Soares](https://github.com/RafaelSoares12) Revisado por @Brenoborgesbr
 - [x] RF06 - Criar tela de perfil. - [João Victor Walcacer](https://github.com/joaovictorwg) Revisado por @SauloFerrazTC
 
+
 ---
 ## *RF02 - Efetuar Cadastro do Usuário*.
 
@@ -80,3 +81,6 @@ O projeto desenvolvido na disciplina Engenharia de Software do semestre 2023.2 �
 ![Tela 1](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20tela%20de%20cadastro/Tela%201.png)
 ![Tela 2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20tela%20de%20cadastro/Tela%202.png)
 ![Tela 3](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20tela%20de%20cadastro/Tela%203.png)
+
+---
+

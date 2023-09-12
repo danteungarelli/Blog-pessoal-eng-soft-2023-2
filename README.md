@@ -77,4 +77,4 @@ O projeto desenvolvido na disciplina Engenharia de Software do semestre 2023.2 �
 
 *Descrição:* Como um usuário em potencial do blog pessoal, desejo poder criar uma conta facilmente para acessar todos os recursos do blog e compartilhar minhas paixões e perspectivas exclusivas.
 
-https://github.com/Daniel-Noleto/IMGs-BlogPessoal/commit/9116fa3248c17da0159093c7b9ef95bc70cea587
+![Prototipo de tela cadastro ](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/commit/9116fa3248c17da0159093c7b9ef95bc70cea587)

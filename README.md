@@ -198,3 +198,13 @@ Eu enquanto usuário, com uma conta válida, da plataforma quero poder ter acess
 
 | Usuário recebe a url direta e acessa, o sistema verifica se ele está logado, e então mostra a página. |
 
+## **US05** - User Story(Tela Específica de Publicação)
+
+
+Eu enquanto usuário, com uma conta válida, da plataforma quero poder ter acesso ao texto completo, imagens e autor da publicação que tenho interesse.
+
+---
+
+## Protótipo da Tela
+![prototipo](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Captura%20de%20tela%202023-09-12%20220316.png)
+

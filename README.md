@@ -21,7 +21,7 @@ O projeto desenvolvido na disciplina Engenharia de Software do semestre 2023.2 �
 - [x] RF04 - Criar publicação - [Breno Borges](https://github.com/Brenoborgesbr) Revisado por @danteungarelli
 
 - [x] RF05 - Visualizar tela específica da publicação. - [Rafael Soares](https://github.com/RafaelSoares12) Revisado por @Brenoborgesbr
-- [x] RF06 - Criar tela de perfil. - [João Victor Walcacer](https://github.com/joaovictorwg) Revisado por @SauloFerrazTC
+- [x] RF06 - Visualizar Tela de Perfil. - [João Victor Walcacer](https://github.com/joaovictorwg) Revisado por @SauloFerrazTC
 
 
 ---
@@ -276,4 +276,73 @@ Eu enquanto usuário, com uma conta válida, da plataforma quero poder ter acess
 
 ## Protótipo da Tela
 ![prototipo](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Captura%20de%20tela%202023-09-12%20220316.png)
+
+---
+## *RF06 - Visualizar Tela de Perfil*.
+
+### Autor: [joaovictorwg](https://github.com/joaovictorwg) - João Victor Walcacer Giani
+
+### Revisor: [SauloFerrazTC](https://github.com/SauloFerrazTC) - Saulo Ferraz
+---
+
+
+## Caso de Uso
+
+| Item            | Descrição                                                              |
+| --------------- | ---------------------------------------------------------------------- |
+| Caso de uso     | RF06 - Visualizar Tela de Perfil.                                    |
+| Resumo          | Após o Usuário acessar a tela de perfil por meio da tela inicial, ele terá acesso a sua foto de perfil, nome de usuário, descrição do perfil, botão para editar o perfil, posts do usuário, comentários feitos pelo usuário, posts curtidos pelo usuário, quantidade de seguidores e perfis que o usuário está seguindo.|
+| Ator principal  | Usuário - Visualiza a tela de Perfil                                                                                                       |
+| Pré-condição| O usuário deve ter acessado a aplicação com uma conta válida e estar visualizando a tela principal.|
+|Pós-condições| O usuário tem acesso a página do seu perfil, tal como informações, opções de edição e posts relacionados a este usuário.
+|
+                    
+
+                                
+#### Opções de Usuário
+| Opções                              | Descrição                                                                                 |
+|-------------------------------------|-------------------------------------------------------------------------------------------|
+|Foto de Perfil do Usuário       | Ao clicar no ícone da foto de Perfil, o usuário tem acesso a uma tela com a foto em tamanho maior.|
+|Nome de Usuário                       | O usuário pode visualizar o nome de usuário.|
+|Descrição do Perfil  | O usuário pode visualizar a descrição de seu perfil.       |
+|Botão para Editar Perfil                | Ao clicar no botão, o usuário é levado a uma página onde ele tem as opções de editar a foto de perfil, o nome de usuário e a descrição do perfil. |
+|Posts do Usuário                | Ao clicar no botão e descer a tela, o usuário terá acesso aos seus próprios posts, onde poderá clicar nos posts e acessar a tela de post. |
+|Comentários do Usuário                | Ao clicar no botão e descer a tela, o usuário terá acesso aos seus comentários em outros posts, onde poderá clicar no comentário para abrir a tela de comentário. |
+|Posts curtidos pelos usuários               | Ao clicar no botão e descer a tela, o usuário terá acesso a suas curtidas em outros posts e poderá clicar no post para acessar a tela de posts. |
+|Seguidores e Seguindo                | O usuário podera visualizar a quantidade de seguidores e perfis que ele está seguindo, ao clicar, ele tera acesso a tela de Seguidores e Perfis seguidos. |
+
+---
+## Fluxos 
+#### Fluxo principal
+
+| Passos  | Descrição                                                                                                       |
+| ------- | --------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | Usuário deve acessar aplicação com uma conta válida;                     |
+| Passo 2 | Usuário deverá acessar Tela Home; |
+| Passo 3 | Usuário deverá clicar no ícone referente ao Perfil de Usuário;                       |
+| Passo 4 | Usuário terá acesso a Tela de Perfil;                                     |
+
+
+                                
+#### Fluxo alternativo
+
+| Usuário está logado e já se encontra na Tela Home, apenas deverá clicar no Ícone de Perfil. |
+
+---
+
+## US06 - User Story(Tela de Perfil do Usuário): 
+
+*Título:* Tela de Perfil do Usuário
+
+*Descrição:* Como um usuário, tendo acessado a aplicação com uma conta válida, quero clicar no ícone do meu perfil, onde poderei acessar uma tela com as informações do meu perfil, tais como foto de perfil, nome de perfil, descrição do perfil, posts, seguidores e perfis seguidos, posts curtidos, comentários, e quero poder editar meu perfil e minhas informações.
+
+
+---
+
+## Protótipo da Tela de Perfil
+
+![prototipo](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/RF06%20-%20Tela%20Perfil/Captura%20de%20tela%202023-09-13%20001227.png)
+
+---
+
 

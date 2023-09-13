@@ -1,3 +1,4 @@
+
 # Blog-pessoal-eng-soft-2023-2| Universidade Federal do Tocantins - Palmas
 ## Introdução
 
@@ -162,3 +163,38 @@ Eu enquanto usuário, com uma conta válida, da plataforma quero poder ter acess
 ![prototipo2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/RF03-TelaHome/TelaHome2.png)
 
 ---
+## *RF05 - Visualizar tela específica de publicação*.
+
+---
+
+### Autor: [RafaelSoares12](https://github.com/RafaelSoares12) - Rafael Soares L. de Souza
+### Revisor: [danteungarelli](https://github.com/danteungarelli) - Dante Gallindo Ungarelli
+---
+## Caso de Uso
+
+| Item            | Descrição                                                              |
+| --------------- | ---------------------------------------------------------------------- |
+| Caso de uso     | RF05 - Visualizar tela específica de publicação.                                    |
+| Resumo          | Após o usuário logado clicar em alguma publicação, ele poderá ver as informações detalhadas de cada públicação, como texto principal, imagens, etc.|
+| Ator principal  | Usuário - Visualiza a tela da publicação.                                                                                                        |
+| Pré-condição| O usuário deve ter acessado a aplicação, ter feito login em uma conta válida e clicar em alguma publicação.|
+|Pós-condições| O usuário acessa a página inicial do blog pessoal e  usuário seleciona a opção de registro de conta.
+|
+
+---
+
+## Fluxos
+                                
+#### Fluxo principal
+
+| Passos  | Descrição                                                                                                       |
+| ------- | --------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | Usuário faz login.                    |
+| Passo 2 | Usuário visualiza algum post de seu interesse e clica nele. |
+| Passo 3 | Usuário visualiza a tela com informações detalhadas.                   
+
+                                
+#### Fluxo alternativo
+
+| Usuário recebe a url direta e acessa, o sistema verifica se ele está logado, e então mostra a página. |
+

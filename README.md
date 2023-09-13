@@ -10,7 +10,7 @@ O projeto desenvolvido na disciplina Engenharia de Software do semestre 2023.2 �
 
 ---
 
-#### Iteração 1
+#### Iteração 1: De 30/08/23 a 13/09/23
 
 - [x] RF01 - Efetuar Login.  [Saulo Ferraz](https://github.com/SauloFerrazTC) Revisador por @joaovictorwg
 
@@ -25,6 +25,75 @@ O projeto desenvolvido na disciplina Engenharia de Software do semestre 2023.2 �
 
 
 ---
+
+## *RF01* - Efetuar Login
+
+---
+
+### Autor: [SauloFerrazTC](https://github.com/SauloFerrazTC) - Saulo Ferraz Tenório Cavalcanti
+### Revisor: [joaovictorwg](https://github.com/joaovictorwg) - João Victor Walcácer Giani
+
+---
+
+| Item             | Descrição                                                              |
+| ---------------  | ---------------------------------------------------------------------- |
+| Caso de uso  | RF01- Efetuar Login.                                           |
+| Descrição Sucinta| Após o usuário ter aberto o endereço de login ao site, ele pode fazer o login de sua conta, através do preenchimento dos campos e-mail e senha . Mas caso o usuário não tenha uma conta , ele pode apertar na opção de se cadastrar.| 
+| Ator principal   | Usuário - Efetua o Login no site.                                             |                                                                                             |
+| Pré-condição     | O usuário deve ter acessado o site através de um endereço/link.                 |
+| Pós-condição     | O usuário tem acesso a sua conta do site e a sua tela principal.                               |
+
+---
+
+#### Opções de Usuário
+| Opções                              | Descrição                                                                                 |
+|-------------------------------------|-------------------------------------------------------------------------------------------|
+|Entrar na conta      | Ao apertar no botão "Entrar", o usuário terá acesso a sua conta caso os campos preenchidos estejam válidos.|
+|Direcionar a tela de cadastro                       | Ao apertar no botão "cadastra-se", o usuário será direcionado a tela de cadastro. 
+
+---
+
+## Fluxos:
+
+|Fluxo Principal                                             |
+| ---------------------------------------------------------- |
+|1- O usuário acessa o site através de um link/endereço e aperta em login                     |
+|2- O usuário deve ter uma conta válida                      |
+|3- O usuário digita no campo de "Email" seu email da conta e no campo "senha" a senha de sua conta|
+|4- O usuário aperta no botão "Entrar"                       |
+
+
+|Fluxo Alternativo                                                             |
+| ------------------------------------------------------------------------- |
+|1- Usuário não possui uma conta válida no site ou digitou o email ou senha errado                                               |
+|2- Aparece um pequeno texto avisando que a conta é inválida  |
+
+---
+
+## Campos do Login:
+
+| Campo    | Obrigatório? | Editável? | Formato      |
+| -------- | ------------ | --------- | ------------ |
+| Email    | Sim          | Sim       | Texto        |
+| Senha    | Sim          | Sim       | Texto        |
+  
+---
+
+## US01 - User Story(Tela Login):
+
+####  Efetuar Login
+
+Eu, usuário, desejo acessar minha conta registrada no site para poder usufruir das funcionalidades dele.
+
+---
+
+## Protótipo:
+
+![tela1](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/RF01/tela%20login%20principal.png)
+![tela2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/RF01/tela%20login%20alternativa.png)
+
+---
+
 ## *RF02 - Efetuar Cadastro do Usuário*.
 
 ---

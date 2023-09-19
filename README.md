@@ -232,6 +232,73 @@ Eu enquanto usuário, com uma conta válida, da plataforma quero poder ter acess
 ![prototipo2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/RF03-TelaHome/TelaHome2.png)
 
 ---
+
+## **RF04** - Criar publicação
+
+---
+### Autor: [Breno Borges](https://github.com/Brenoborgesbr) - Breno Borges
+### Revisor: [danteungarelli](https://github.com/danteungarelli) - Dante Gallindo Ungarelli
+---
+
+## Caso de Uso
+
+|Item	        |Descrição                                                           |
+| ------------- | ------------------------------------------------------------------ |
+|Caso de uso    | RF04 - Criar publicação. |
+|Resumo         | Este caso de uso descreve o processo pelo qual um usuário registrado pode criar uma publicação no blog pessoal, incluindo título, arquivos, imagens e formatação de texto. |
+|Ator principal | Usuário registrado. |
+|Pré-condição   | O usuário acessa a tela home do blog pessoal e usuário seleciona a opção de criar publicação.|
+|Pós-condições  | O usuário acessa a página criar publicação e tem acesso a todas as opções possíveis. | 
+
+---
+
+#### Campos da tela publicação
+
+|Campos           | Obrigatório? | Editável? | Formato |
+|-----------------|--------------|-----------|---------|
+|Título da Publicação| Sim          | Sim       | Texto   |
+|Conteúdo da Publicação| Sim        | Sim       | Texto   |
+|Imagens	       |Não         | Sim	|Imagem   |
+|Salvar Rascunho       |Sim         | Não	|checkbox |
+|Publicar              |Sim         | Não	|checkbox |
+|Cancelar              |Sim         | Não	|checkbox |
+
+---
+
+## Fluxos
+                                
+#### Fluxo principal
+
+| Passos  | Descrição                                                                                                       |
+| ------- | --------------------------------------------------------------------------------------------------------------- |
+| Passo 1 | A página de criação de publicação deve ser facilmente acessível a todos os usuários, independentemente de suas habilidades físicas ou cognitivas, cumprindo as diretrizes de acessibilidade da Web.  |
+| Passo 2 | Deve haver um botão de criação de nova publicação claramente visível na página inicial do blog. |
+| Passo 3 | Ao clicar no botão de criação de nova publicação, os usuários devem ser levados a uma página de criação intuitiva, com um formulário de entrada de texto claramente identificado. | 
+| Passo 4 | O formulário de criação de publicação deve incluir campos para título, conteúdo da publicação, imagens (com suporte para descrições alternativas) e categorias. |
+| Passo 5 | Deve ser possível salvar rascunhos de publicações em andamento e retomá-los mais tarde. |
+| Passo 6 | Os usuários devem ter a opção de visualizar a publicação antes de publicá-la. |
+| Passo 7 | Deve haver um botão de publicação claramente identificado que permita aos usuários publicar sua criação no blog. |
+| Passo 8 | A página de criação de publicação deve ser responsiva e funcionar bem em dispositivos móveis e desktop. |
+| Passo 9 | Um sistema de gerenciamento de conteúdo deve ser implementado para rastrear as publicações dos usuários, permitindo edições futuras e o gerenciamento de conteúdo. |                 
+
+                                
+#### Fluxo alternativo
+
+| Usuário clica na tela criar publicação, o sistema verifica se ele está logado, e caso não esteja é direcionado a tela de login. |
+
+---
+
+## **US04** - User Story(Tela de Criar Publicação)
+
+Eu, enquanto usuário com uma conta válida, quero acessar uma página de criação de publicação que seja inclusiva e acessível, para que eu possa expressar minhas paixões, conhecimentos e perspectivas únicas de forma fácil e sem barreiras.
+
+---
+
+## Protótipo da Tela
+![prototipo](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/RF%2004.png)
+
+---
+
 ## *RF05 - Visualizar tela específica de publicação*.
 
 ---
@@ -246,8 +313,8 @@ Eu enquanto usuário, com uma conta válida, da plataforma quero poder ter acess
 | Caso de uso     | RF05 - Visualizar tela específica de publicação.                                    |
 | Resumo          | Após o usuário logado clicar em alguma publicação, ele poderá ver as informações detalhadas de cada públicação, como texto principal, imagens, etc.|
 | Ator principal  | Usuário - Visualiza a tela da publicação.                                                                                                        |
-| Pré-condição| O usuário deve ter acessado a aplicação, ter feito login em uma conta válida e clicar em alguma publicação.|
-|Pós-condições| O usuário acessa a página inicial do blog pessoal e  usuário seleciona a opção de registro de conta.
+| Pré-condição | O usuário deve ter acessado a aplicação, ter feito login em uma conta válida e clicar em alguma publicação.|
+| Pós-condições| O usuário acessa a página inicial do blog pessoal e  usuário seleciona a opção de registro de conta.
 |
 
 ---

@@ -10,7 +10,7 @@ class User_Model {
 
         $connect = new Connection ();
 
-        $sql = $connect -> getConnection () -> query ("SELECT * FROM usuarios WHERE email = '$email'");
+        $sql = $connect -> getConnection () -> query ("SELECT * FROM usuario WHERE email = '$email'");
         $sql = $sql -> fetchAll (PDO::FETCH_ASSOC);
 
         return $sql;

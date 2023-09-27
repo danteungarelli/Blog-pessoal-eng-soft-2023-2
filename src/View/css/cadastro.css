@@ -72,3 +72,7 @@
         #submit:hover{
             background-image: linear-gradient(to right, #57247D, #7236A1);
         }
+
+        .link{
+            color: #C8ACDD;
+        }

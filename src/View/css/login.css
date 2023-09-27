@@ -40,11 +40,12 @@
             border: none;
         }
         .submit{
+            
             background-color: #7F40B0;
             padding: 15px;
             border-radius: 10px;
             outline: none;
-            width: 100%;
+            width: 110%;
             color: white;
             font-size: 15px;
             border: none;

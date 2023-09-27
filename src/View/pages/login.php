@@ -1,33 +1,31 @@
 <?php
+session_start(); //Iniciar Sessão
 
-require_once ("../../controller/UserController.php");
 
-if($_POST){
+    // Limpar o buffer de redirecionamento
+    ob_start();
 
-    $email = $_POST ["email"];
-    $senha = $_POST ["senha"];
-    $user = new UserController();
 
-    if($user -> verifyLogin ($email)){
-       if($user -> verifyPassword($email, $senha)){
+
+    require_once ("../../controller/UserController.php");
+
+    if($_POST){
+
+        $email = $_POST ["email"];
+        $senha = $_POST ["senha"];
+        $user = new UserController();
         
-        echo("<script>window.location.href='home.php' </script>");
-       } 
-       else{
-        
-        echo("<script> window.alert('Senha inválida.')</script>");
-       }
-
-
-    }
-    else{
-        echo ("<script> window.alert('Usuário não encontrado.'); </script>");
+        $user -> verifyLogin($email, $senha);
     }
 
+
+    //Verificar se a variavel global "msg" acessa o If
+if(isset($_SESSION['msg'])){
+    //Imprimir o valor da variavel global "msg"
+    echo $_SESSION['msg'];
+    //Destruir a variavel global "msg"
+    unset($_SESSION['msg']);
 }
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -44,17 +42,34 @@ if($_POST){
     <div class="tela-login">
         <center><h1>Login</h1></center>
 
-        <form method="POST">
+    
+
+        <form method="POST" action="">
+
+            <?php
+                $email = "";
+                if(isset($dados['email'])){
+                    $email = $dados['email'];
+                }  
+            ?>
+
             <label for="email">Login</label>    
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="email" value="<?php echo $email; ?>">
             <br><br>
+
+            <?php
+                $senha = "";
+                if(isset($dados['senha'])){
+                    $senha = $dados['senha'];
+                }  
+            ?>
 
             <label for="senha">Senha</label> 
             <input type="password" id="senha" name="senha">
             <br><br>
-
+            
             <input type="submit" value="Enviar" class="submit">
-
+        
         </form>
         <p>Não possui uma conta? <a href="http://localhost:8000/src/view/pages/cadastro.php" class="link">Cadastre-se</a></p>
         

@@ -1,0 +1,44 @@
+ Desenvolvimento de um site de blog
+
+Objetivo do Projeto:
+Este projeto tem como objetivo criar um site de blog dedicado à publicação regular de conteúdo informativo, educacional ou de entretenimento em uma variedade de tópicos. O blog será uma plataforma para compartilhar conhecimento, opiniões e histórias com uma audiência online.
+
+Descrição do Projeto: 
+projeto envolve o planejamento, design, desenvolvimento e lançamento de um site de blog. O site será uma plataforma de publicação online onde os autores podem criar e compartilhar conteúdo, incluindo artigos, imagens e possivelmente outros tipos de mídia, como vídeos e interagir com posts de terceiros.
+
+Equipe do Projeto:
+
+1. Dante Gallindo Ungarelli (Líder).
+2. Breno Borges.
+3. Daniel Nolêto.
+4. Rafael Soares.
+5. Saulo Ferraz Tenório Cavalcanti.
+6. João Victor Walcacer.
+
+Requisitos Funcionais:
+
+1.Gestão de Conteúdo: O site permitirá aos usuários criar, editar e publicar facilmente artigos, imagens e outros tipos de conteúdo.
+2.Categorias e Tags: Os artigos serão organizados em categorias e tags para facilitar a navegação e a pesquisa.
+3.Sistema de Comentários: Os leitores poderão comentar nas postagens do blog e interagir outros leitores.
+4.Integração de Redes Sociais: Botões de compartilhamento social serão incluídos para permitir que os leitores compartilhem o conteúdo em suas redes sociais.
+5.Sistema de Pesquisa: Um mecanismo de pesquisa interno permitirá que os leitores encontrem conteúdo específico e outros usuários.
+6.Página de perfil: Uma página dedicada à apresentação do usuário, incluindo informações pessoais.
+7.Sistema de amizades: os usuários poderão aceitar e enviar solicitações de amizade de/para outros usuários.
+8.Página "Amigos": uma página dedicada a mostrar os posts recentes dos amigos. 
+
+Requisitos Não Funcionais:
+
+1.Design Atraente: O site terá um design atraente e coeso, que reflita a identidade visual e o estilo do blog.
+2.Segurança: Medidas de segurança serão implementadas para proteger o site contra ameaças cibernéticas.
+
+Orçamento:
+
+1.Custo de registrar domínio .com do site: US$ 10 a US$ 50 por ano.
+2.Custo de hospedagem do site: US$ 5 e US$ 30 por mês.
+
+Entregáveis:
+
+1.Arquivos do código-fonte do site.
+2.Arquivos de design, incluindo logotipo e elementos gráficos.
+
+

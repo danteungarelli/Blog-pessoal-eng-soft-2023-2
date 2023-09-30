@@ -24,7 +24,8 @@ session_start(); //Iniciar Sessão
 
     echo "Bem vindo " . recuperarNomeToken() . "<br>";
 
-    //Acessar pagina de perfil
+    echo"<a href='addPost.php'>Adicionar Publicação</a><br>";
+
     echo"<a href='perfil.php'>Meu Perfil</a><br>";
 
     

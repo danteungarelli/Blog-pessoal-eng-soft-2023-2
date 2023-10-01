@@ -1,8 +1,26 @@
 <?php
-session_start(); // Inicie a sessão
+session_start(); //Iniciar Sessão
+
 
 // Limpar o buffer de redirecionamento
 ob_start();
+
+//Incluir arquivo para validar e recuperar token
+
+require_once ("../index.php");
+
+// Chamar função validar o token, se for false -> token é invalido e acessa o If
+if(!validarToken()){
+    //Criar mensagem de erro e atribuir para a variavel global
+    $_SESSION['msg'] = "<p style='color: #f00;'> Erro: Necessário realizar o login para acessar adicionar uma publicação!</p>";
+    echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
+    //Redirecionar usuario para a pagina de login
+    header("Location: login.php");
+
+    //Parar o processamento da página
+    exit();
+}
+
 
 // Fazer conexão com o banco de dados
 include_once '../../config/connection.php';
@@ -12,15 +30,16 @@ if (isset($_POST['SubmitPost'])) {
     // Obtém os dados do formulário
     $titulo = $_POST['titulo'];
     $conteudo = $_POST['conteudo'];
-    $autor_id = $_POST['autor_id'];
+    $autor_id = $user_id;
     $assunto = $_POST['assunto'];
     $slug = $_POST['slug'];
 
-    // Faça a validação dos dados, se necessário
+    $user_id = recuperarIDToken();
 
-    // Crie uma instância de Connection
     $conexao = new Connection();
     $pdo = $conexao->getConnection();
+
+    $autor_id = $user_id; // para pegar o id automaticamente
 
     // Prepare e execute a inserção no banco de dados
     $sql = "INSERT INTO postagens (titulo, conteudo, autor_id, assunto, slug) VALUES (:titulo, :conteudo, :autor_id, :assunto, :slug)";
@@ -81,14 +100,7 @@ if (isset($_SESSION['msg'])) {
                 <label for="conteudo" class="labelInput">Conteúdo</label>
             </div>  
             <br><br>
-
-            <!-- Autor ID -->
-            <div class="InputBox">
-                <input type="number" name="autor_id" id="autor_id" class="InputUser" required>
-                <label for="autor_id" class="labelInput">ID do Autor</label>
-            </div>
-            <br><br>
-
+            
             <!-- Assunto -->
             <div class="InputBox">
                 <input type="text" name="assunto" id="assunto" class="InputUser" required>

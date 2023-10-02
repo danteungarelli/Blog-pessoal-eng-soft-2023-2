@@ -17,6 +17,27 @@ class User_Model {
 
 
     }
+
+    function postagens($id){
+        $connect = new Connection();
+
+        $sql = $connect -> getConnection () -> query ("SELECT * FROM postagens WHERE autor_id = '$id'");
+        $sql = $sql -> fetchAll (PDO::FETCH_ASSOC);
+
+        return $sql;
+    }
+
+    function usuarios($id){
+
+        $connect = new Connection ();
+
+        $sql = $connect -> getConnection () -> query ("SELECT * FROM usuario WHERE id_user = '$id'");
+        $sql = $sql -> fetchAll (PDO::FETCH_ASSOC);
+
+        return $sql;
+
+
+    }
 }
 
 ?>

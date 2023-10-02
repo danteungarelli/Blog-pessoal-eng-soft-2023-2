@@ -22,7 +22,7 @@ class UserController {
                 //echo($data['nome_completo']);
                 //echo($data['nome_user']);
                 //echo($data['senha']);
-                //echo password_hash('54321', PASSWORD_DEFAULT);
+                //password_hash($senha, PASSWORD_DEFAULT);
                 //$senha = base64_encode($senha);
                 //echo $senha;
                 //echo (base64_decode("NTQzMjE="));
@@ -31,7 +31,7 @@ class UserController {
                 if(password_verify($senha, $data['senha'])){
                     //Implementação - JWT é dividido em 3 partes separadas por um "." : um header, um payload e uma signature
                     //o header indica o tipo do token do jwt. e o algoritimo utilizado "HS256"
-                    echo "senha correta";
+                    //echo "senha correta";
                     $header = [
                         'alg' => 'HS256',
                         'typ' => 'JWT'
@@ -75,7 +75,7 @@ class UserController {
                     //Codificar para base64
                     $payload = base64_encode($payload);
                     //Imprimir payload
-                    var_dump($payload);
+                    //var_dump($payload);
 
                     //O signature é a assinatura
                     //Chave secreta e unica
@@ -87,7 +87,7 @@ class UserController {
                     //codificar para base64
                     $signature = base64_encode($signature);
                     //imprimir signature
-                    var_dump($signature);
+                    //var_dump($signature);
 
                     //imprimir o token
                     echo "Token: $header.$payload.$signature <br>";
@@ -101,13 +101,13 @@ class UserController {
                 }
                 else{
                     //Criar mensagem de erro e atribuir para variável global "msg"
-                    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou Senha Inválidos!</p>";
+                    $_SESSION['msg'] = "<p style='color: #fff;'>Erro: Usuário ou Senha Inválidos!</p>";
                     echo("<script> window.alert('Erro: Usuário ou Senha Inválidos!')</script>");
                 }
             }
             else{
                 //Criar mensagem de erro e atribuir para variável global "msg"
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou Senha Inválidos!</p>";
+                $_SESSION['msg'] = "<p style='color: #fff;'>Erro: Usuário ou Senha Inválidos!</p>";
                 echo("<script> window.alert('Erro: Usuário ou Senha Inválidos!')</script>");
                 echo("aaaaaaaaaaaaaaa");
             }

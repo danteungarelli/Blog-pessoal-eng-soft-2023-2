@@ -49,7 +49,8 @@ include_once '..\..\config\connection.php';
          
          $cad_usuario->execute();
          if($cad_usuario->rowCount()){
-            echo "<p style='color: green;'>Usuário cadastrado com sucesso!</p>";
+             header("Location: login.php");
+             echo "<p style='color: green;'>Usuário cadastrado com sucesso!</p>";
          }
          else{
             echo "<p style='color: #f00;'>Erro: Falha ao cadastrar usuário!</p>";
@@ -114,7 +115,8 @@ include_once '..\..\config\connection.php';
                 <br><br>
                 <input type="submit" name="SendCadUser" id="submit"><br><br>
 
-                <a href="http://localhost:8000/src/view/pages/login.php" class="link">Login</a>
+                <p>Já possui uma conta? <a href="http://localhost:8000/src/view/pages/login.php" class="link">Login</a></p>
+                
 
             </fieldset>
         </form>

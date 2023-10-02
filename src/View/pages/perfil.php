@@ -9,7 +9,7 @@ ob_start();
     // Chamar função validar o token, se for false -> token é invalido e acessa o If
     if(!validarToken()){
         //Criar mensagem de erro e atribuir para a variavel global
-        $_SESSION['msg'] = "<p style='color: #f00;'> Erro: Necessário realizar o login para acessar a página!</p>";
+        $_SESSION['msg'] = "<p style='color: #fff;'> Erro: Necessário realizar o login para acessar a página!</p>";
         
         //Redirecionar usuario para a pagina de login
         header("Location: login.php");
@@ -23,7 +23,7 @@ ob_start();
     $email = recuperarEmailToken();
     $nome_completo = recuperarNomeToken();
     $nascimento = recuperarNascimentoToken();
-    $telefone = recuperarTelefoneToken();
+    //$telefone = recuperarTelefoneToken();
     $sexo = recuperarSexoToken();
 
 ?>
@@ -46,7 +46,6 @@ ob_start();
         <p>Email: <?php echo $email; ?></p>
         <p>Nome Completo: <?php echo $nome_completo; ?></p>
         <p>Data de Nascimento: <?php echo $nascimento; ?></p>
-        <p>Telefone: <?php echo $telefone; ?></p>
         <p>Sexo: <?php echo $sexo; ?></p>
         <p>Realizar Logout? <a href='logout.php'>Sair</a><br></p>
         

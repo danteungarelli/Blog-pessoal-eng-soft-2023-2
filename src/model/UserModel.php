@@ -40,5 +40,14 @@ class User_Model {
     }
 }
 
+/*
+    $user = new User_Model();
+
+    $user = $user -> Login ("joaovictor@email.com");
+
+    $nome = $user [0];
+    print_r ($nome ["email"]);  
+*/
+
 ?>
 

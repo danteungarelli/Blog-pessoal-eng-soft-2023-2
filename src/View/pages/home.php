@@ -29,17 +29,11 @@ session_start(); //Iniciar Sessão
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina de Perfil</title>
 
- feature/formAddPost
-    echo"<a href='addPost.php'>Adicionar Publicação</a><br>";
-
-    echo"<a href='perfil.php'>Meu Perfil</a><br>";
-
     <link rel="stylesheet" href="../css/home.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
- develop
 
     <?php
     
@@ -84,6 +78,7 @@ session_start(); //Iniciar Sessão
                 <div class="sidebar">
                             <!-- Conteúdo da barra lateral, como links -->
                     <a href="http://localhost:8000/src/View/pages/perfil.php" class="link">Meu Perfil</a>
+                    <a href="http://localhost:8000/src/View/pages/addPost.php" class="Criar_Post">Criar Post</a>
                     <a href='logout.php'>Sair</a><br></p>
                 </div>
 
@@ -115,13 +110,21 @@ session_start(); //Iniciar Sessão
                     
                     <div class="post_box">
                         <p><?php echo $post['conteudo']; ?></p>
+
+                        <!-- Ícone da Lixeira -->
+                        <a href="http://localhost:8000/src/View/pages/confirmarExclusao.php?id=<?php echo $post['id']?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+
+                        </a>
                     </div>
                     <?php
                 }
                 ?>
             </div>
                 
-            <a href="http://localhost:8000/src/View/pages/addPost.php" class="Criar_Post">Criar Post</a>
+            
     </div>
 </body>
 </html>

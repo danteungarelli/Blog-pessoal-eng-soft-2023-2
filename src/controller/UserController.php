@@ -5,7 +5,6 @@ session_start(); //Iniciar Sessão
 // Limpar o buffer de redirecionamento
 ob_start();
 
-
 require_once ("../../model/UserModel.php");
 
 class UserController {

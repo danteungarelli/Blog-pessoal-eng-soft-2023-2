@@ -40,8 +40,11 @@ if (isset($_POST['SubmitPost'])) {
     
     if ($stmt->execute()) {
         $_SESSION['msg'] = "<p style='color: #008000;'>Postagem adicionada com sucesso!</p>";
+ feature/formAddPost
+
         echo "<script>window.location.href = 'home.php';</script>";
         exit();
+ develop
     } else {
         $_SESSION['msg'] = "<p style='color: #f00;'>Erro ao adicionar postagem.</p>";
     }
@@ -106,4 +109,8 @@ if (isset($_SESSION['msg'])) {
 </div>
 
 </body>
+ feature/formAddPost
 </html>
+
+</html>
+ develop

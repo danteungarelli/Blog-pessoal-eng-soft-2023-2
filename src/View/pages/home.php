@@ -29,11 +29,17 @@ session_start(); //Iniciar Sessão
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina de Perfil</title>
 
+ feature/formAddPost
+    echo"<a href='addPost.php'>Adicionar Publicação</a><br>";
+
+    echo"<a href='perfil.php'>Meu Perfil</a><br>";
+
     <link rel="stylesheet" href="../css/home.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
+ develop
 
     <?php
     

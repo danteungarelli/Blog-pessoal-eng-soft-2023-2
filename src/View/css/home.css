@@ -164,19 +164,3 @@ body {
     padding: 20px;
 }
 
-.Criar_Post {
-    display: inline-block;
-    padding: 20px 40px;
-    background-color: #7F40B0;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: large;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    
-    position: fixed; /* Tornar a posição fixa */
-    bottom: 20px; /* Distância do botão em relação à parte inferior */
-    right: 20px; /* Distância do botão em relação à direita */
-    z-index: 999; /* Para garantir que o botão fique acima de outros elementos */
-}

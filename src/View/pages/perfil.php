@@ -40,6 +40,7 @@ ob_start();
 </head>
 <body>
     <div class="tela-perfil">
+    <a href="http://localhost:8000/src/View/pages/home.php" class="link" style="color: #7F40B0;">Home</a>
     <center><h1>Perfil</h1></center>
         <p>Nome de Usuário: <?php echo $nome_user; ?></p>
         <p>ID: <?php echo $id; ?></p>

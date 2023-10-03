@@ -110,6 +110,9 @@ session_start(); //Iniciar Sessão
                     
                     <div class="post_box">
                         <p><?php echo $post['conteudo']; ?></p>
+                        
+                        <!-- Botão/link "Ver Detalhes" que leva para verPost.php com o ID do post como parâmetro -->
+                         <a href='verPost.php?id_post=<?php echo $post['id']; ?>'>Ver Detalhes</a>
 
                         <!-- Ícone da Lixeira -->
                         <a href="http://localhost:8000/src/View/pages/confirmarExclusao.php?id=<?php echo $post['id']?>">

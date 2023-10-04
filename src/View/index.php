@@ -119,7 +119,7 @@ function recuperarSexoToken(){
 
     return $dados_token -> sexo;
 }
-function recuperarTelefoneToken(){
+/*function recuperarTelefoneToken(){
     $token = $_COOKIE['token'];
 
     $token_array = explode('.', $token);
@@ -133,6 +133,7 @@ function recuperarTelefoneToken(){
 
     return $dados_token -> telefone;
 }
+*/
 function recuperarNascimentoToken(){
     $token = $_COOKIE['token'];
 

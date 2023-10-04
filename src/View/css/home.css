@@ -1,0 +1,166 @@
+body {
+    background-color: #FFFFF1;
+    margin: 0; 
+    padding: 0;
+}
+
+.post_user {
+    border: 2px solid #7F40B0;
+    border-bottom: 0px;
+    border-radius: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    background-color: #C8ACDD;
+}
+
+.post_box {
+    border: 2px solid #7F40B0;
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #FFFFF1;
+}
+
+.post_title {
+    float: inline-start;
+    font-weight: bold;
+     /* Ajuste a margem inferior conforme necessário */
+}
+.post_autor{
+    float: right;
+
+}
+.post_title, .post_autor {
+    display: inline-block;
+    vertical-align: middle; /* Opcional, para alinhar verticalmente os textos */
+}
+
+
+.top_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7F40B0;
+    padding: 6px;
+    height: 20%;
+    border-bottom: 2px solid #000000;
+    margin-left: 0; /* Margem inicial quando a sidebar estiver oculta */
+}
+
+.title {
+    margin: 0; /* Remova o margin-left */
+    flex: 1; /* Isso faz com que o texto "Home" ocupe o espaço restante no centro */
+    text-align: center; /* Centralize o texto */
+}
+
+.menu-button {
+    cursor: pointer;
+    margin-left: 22px;
+}
+
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #000000;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+.sidebar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #7F40B0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    border-right: 2px #000000;
+    
+}
+
+
+.content {
+    margin-left: 0; /* Margem inicial quando a sidebar estiver oculta */
+    padding: 20px;
+}
+
+
+.sidebar.show {
+    width: 250px; /* Largura da barra lateral quando estiver visível */
+    justify-content: flex-start; /* Alinhar os elementos à esquerda */
+    align-items: flex-start; /* Alinhar os elementos no topo */
+    border-right: 2px solid #000000;
+}
+.sidebar.show .content.adjusted {
+    margin-left: 0; /* Defina a margem de volta para 0 para fechar a barra lateral */
+}
+
+.top_box.adjusted{
+    text-align: center;
+    background-color: #7F40B0;
+    padding-top: 5px;
+    padding-bottom: -5px; /* Adicione preenchimento apenas na parte superior e inferior */
+    height: 20%;
+    margin-left: 250px; 
+    transition: margin-left 0.5s;
+
+}
+.content.adjusted {
+    margin-left: 250px; /* Largura da barra lateral quando estiver visível */
+    transition: margin-left 0.5s; /* Adicione uma transição suave */
+}
+.botao_x{
+    background-color: #7F40B0;
+    align-items: left;
+}
+.sidebar a {
+    padding: 16px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.3s;
+    text-align: left; /* Alinhar o texto à esquerda */
+    align-content: left;
+    border-bottom: 2px solid #000000;
+    
+    
+}
+.sidebar.show .botao_x {
+    margin-left: 10px; /* Espaçamento à esquerda para o botão "X" */
+}
+.sidebar a:hover {
+    background-color: #C8ACDD;
+}
+
+.content {
+    margin-left: 0;
+    padding: 20px;
+}
+

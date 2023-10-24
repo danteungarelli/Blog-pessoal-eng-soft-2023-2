@@ -97,11 +97,31 @@ session_start(); //Iniciar Sessão
             
             <p><h1 class="title">Home</h1></p>
         </div> 
+        <div class="filtro-bar">
+        <link rel="stylesheet" href="../css/filtro.css">
+        <a href="home.php">Ver Todos</a>
+        <a href="home.php?assunto=Futebol">Futebol</a>
+        <a href="home.php?assunto=Notícia">Notícias</a>
+        <a href="home.php?assunto=Carros">Carros</a>
+        <a href="home.php?assunto=Música">Música</a>
+        <a href="home.php?assunto=Filmes e Series">Filmes e Séries</a>
+        <a href="home.php?assunto=Política">Politica</a>
+       <!-- Adicione mais links para os outros assuntos -->
+        
+</div>
 
             <div class="content">
                 <?php
+                 $assuntoSelecionado = isset($_GET['assunto'])? $_GET['assunto']:null;
+                 if ($assuntoSelecionado) {
+                     $sql = " WHERE assunto == '$assuntoSelecionado'";
+                     echo "<h2>Filtrando por Assunto: $assuntoSelecionado</h2>";
+                 }else {
+                     echo "<h2>Ver Todos os Posts</h2>";
+                 }
                 // Loop para exibir todos os posts do usuário
                 foreach ($posts as $post) {
+                    if (!$assuntoSelecionado || $post['assunto'] === $assuntoSelecionado) {
                 ?>
                     <div class="post_user">
                         <p class="post_title"><?php echo $post['titulo']; ?></p>
@@ -133,6 +153,7 @@ session_start(); //Iniciar Sessão
 
                     </div>
                     <?php
+                }
                 }
                 ?>
             </div>

@@ -1,0 +1,12 @@
+.filtro-bar a {
+    text-decoration: none;
+    padding: 6px 10px;
+    margin: 150px 10px 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.filtro-bar a.ativo {
+    background-color: #007bff;
+    color: #fff;
+    height: 50px;
+}

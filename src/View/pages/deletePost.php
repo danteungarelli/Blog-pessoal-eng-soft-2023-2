@@ -31,9 +31,7 @@ $stmt = $pdo->prepare($query);
 $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
 $stmt->execute();
 
-
 if($postagens != NULL){
-    
     $sqlDeleteLike = $conexao -> getConnection() -> query("DELETE FROM likes WHERE id_post = $idpost");
     $sqlDelete = $conexao -> getConnection() -> query("DELETE FROM postagens WHERE autor_id = '$id' AND id =$id_postagem");
     

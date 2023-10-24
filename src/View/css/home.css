@@ -3,45 +3,78 @@ body {
     margin: 0; 
     padding: 0;
 }
-
+#icon{
+    position: relative;
+    left: 3.5%;
+    transform: translate(-50%, 140%);
+    z-index: 100;
+    background-color: #FFFFF1;
+    border-radius: 60%;
+    margin-top: 0%;
+}
 .post_user {
-    border: 2px solid #7F40B0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
     border-bottom: 0px;
     border-radius: 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 0px;
-    background-color: #C8ACDD;
+    background-color: #7F40B0;
+    padding-top: 2%;
+    
 }
 
 .post_box {
-    border: 2px solid #7F40B0;
+    position: relative ;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
     border-radius: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    padding: 10px;
-    margin-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding: 5.5px;
+    margin-bottom: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #FFFFF1;
+    background-color: #ECDCF8;
+
 }
 
 .post_title {
-    float: inline-start;
+    padding-left: 30%;
     font-weight: bold;
+    padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 30%;
+    margin-right: 30%;
      /* Ajuste a margem inferior conforme necessário */
 }
 .post_autor{
-    float: right;
+    float: inline-start;
+    margin: 0%;
+    margin-left: 8%;
+    padding: 0;
 
 }
 .post_title, .post_autor {
     display: inline-block;
     vertical-align: middle; /* Opcional, para alinhar verticalmente os textos */
+    align-items: center;
 }
-
+.conteudo{
+    padding-left: 10px;
+    padding-right: 6px;
+    margin-left: 7%;
+    margin-right: 3%;
+}
 
 .top_box {
     display: flex;
@@ -134,6 +167,7 @@ body {
 .content.adjusted {
     margin-left: 250px; /* Largura da barra lateral quando estiver visível */
     transition: margin-left 0.5s; /* Adicione uma transição suave */
+    
 }
 .botao_x{
     background-color: #7F40B0;
@@ -159,16 +193,14 @@ body {
     background-color: #C8ACDD;
 }
 
-.content {
-    margin-left: 0;
-    padding: 20px;
+
+
+.content{
+    margin: 50px auto;
+    width: 60%;
+   
+    align-items: center;
 }
-
-
-
-
-
-
 
 .like-button {
     background-color: #ccc;

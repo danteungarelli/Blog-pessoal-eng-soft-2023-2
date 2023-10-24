@@ -40,6 +40,14 @@ session_start(); //Iniciar Sessão
         require_once("../../model/UserModel.php");
         
         $id_user = recuperarIDToken();
+
+        $conexao = new Connection();
+        $pdo = $conexao->getConnection();
+        $sql = "SELECT * FROM num_notificacao WHERE user_id = :id_user";
+            $st = $pdo->prepare($sql);
+            $st->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+            $st->execute();
+            $resul = $st->fetch(PDO::FETCH_ASSOC);
         
 
         $post = new User_Model();
@@ -79,6 +87,7 @@ session_start(); //Iniciar Sessão
                             <!-- Conteúdo da barra lateral, como links -->
                     <a href="http://localhost:8000/src/View/pages/perfil.php" class="link">Meu Perfil</a>
                     <a href="http://localhost:8000/src/View/pages/addPost.php" class="Criar_Post">Criar Post</a>
+                    <a href="http://localhost:8000/src/View/pages/notificacao.php" class="Notificacao"><?php echo $resul['cont']; ?> Notificações</a>
                     <a href='logout.php'>Sair</a><br></p>
                 </div>
 
@@ -133,6 +142,45 @@ session_start(); //Iniciar Sessão
                         
                         <!-- Botão/link "Ver Detalhes" que leva para verPost.php com o ID do post como parâmetro -->
                          <a href='verPost.php?id_post=<?php echo $post['id']; ?>'>Ver Detalhes</a>
+
+
+                         <!-- Verificando se o post já foi curtido e o número de curtidas -->
+                         <?php
+                         $idpost = $post['id'];
+                         $conexao = new Connection();
+                         $pdo = $conexao->getConnection();
+                         $query = "SELECT * FROM likes WHERE id_post = :idpost AND id_usuario = :id_user";
+                         $stmt = $pdo->prepare($query);
+                         $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
+                         $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+                         $stmt->execute();
+                         $existing_like = $stmt->fetch(PDO::FETCH_ASSOC);
+                         
+                    if ($existing_like) {
+                        $buttonClass = "liked";
+                                  } else {
+                                   $buttonClass = "not-liked";
+                                            }
+                    
+                    $sql = "SELECT COUNT(*) AS numlikes FROM likes WHERE id_post = :idpost";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($result) {
+                        // O número de curtidas está armazenado em $resultado['numlikes']
+                        $numlikes = $result['numlikes'];
+                    } 
+                                       ?>
+
+                        <!--botão de curtir post -->
+                        <form action="http://localhost:8000/src/View/pages/curtirPost.php?id=<?php echo $post['id']?>" method="post">
+                           <button type="submit" name="like" value="like" class="like-button <?php echo $buttonClass; ?>">
+                          <i class="fas fa-heart"></i>
+                          <?php  echo "$numlikes &#9829"; ?>
+                            </button>
+                        </form>
 
                         <!-- Ícone da Lixeira -->
                         <a href="http://localhost:8000/src/View/pages/confirmarExclusao.php?id=<?php echo $post['id']?>">

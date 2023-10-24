@@ -38,6 +38,18 @@ class User_Model {
 
 
     }
+
+    function notificacoes($id){
+
+        $connect = new Connection ();
+
+        $sql = $connect -> getConnection () -> query ("SELECT * FROM notificacao WHERE userid = '$id'");
+        $sql = $sql -> fetchAll (PDO::FETCH_ASSOC);
+
+        return $sql;
+
+
+    }
 }
 
 /*
@@ -50,4 +62,3 @@ class User_Model {
 */
 
 ?>
-

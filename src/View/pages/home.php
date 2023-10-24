@@ -40,15 +40,14 @@ session_start(); //Iniciar Sessão
         require_once("../../model/UserModel.php");
         
         $id_user = recuperarIDToken();
-
+        
         $conexao = new Connection();
         $pdo = $conexao->getConnection();
         $sql = "SELECT * FROM num_notificacao WHERE user_id = :id_user";
-            $st = $pdo->prepare($sql);
-            $st->bindParam(':id_user', $id_user, PDO::PARAM_INT);
-            $st->execute();
-            $resul = $st->fetch(PDO::FETCH_ASSOC);
-        
+        $st = $pdo->prepare($sql);
+        $st->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $st->execute();
+        $resul = $st->fetch(PDO::FETCH_ASSOC);
 
         $post = new User_Model();
         $post = $post -> postagens($id_user);
@@ -106,39 +105,46 @@ session_start(); //Iniciar Sessão
             
             <p><h1 class="title">Home</h1></p>
         </div> 
-        <div class="filtro-bar">
-        <link rel="stylesheet" href="../css/filtro.css">
-        <a href="home.php">Ver Todos</a>
-        <a href="home.php?assunto=Futebol">Futebol</a>
-        <a href="home.php?assunto=Notícia">Notícias</a>
-        <a href="home.php?assunto=Carros">Carros</a>
-        <a href="home.php?assunto=Música">Música</a>
-        <a href="home.php?assunto=Filmes e Series">Filmes e Séries</a>
-        <a href="home.php?assunto=Política">Politica</a>
-       <!-- Adicione mais links para os outros assuntos -->
-        
-</div>
+            <div class="filtro-bar">
+                <link rel="stylesheet" href="../css/filtro.css">
+                <a href="home.php">Ver Todos</a>
+                <a href="home.php?assunto=Futebol">Futebol</a>
+                <a href="home.php?assunto=Notícia">Notícias</a>
+                <a href="home.php?assunto=Carros">Carros</a>
+                <a href="home.php?assunto=Música">Música</a>
+                <a href="home.php?assunto=Filmes e Series">Filmes e Séries</a>
+                <a href="home.php?assunto=Política">Politica</a>
+                <!-- Adicione mais links para os outros assuntos -->
+            
+            </div>
 
             <div class="content">
                 <?php
-                 $assuntoSelecionado = isset($_GET['assunto'])? $_GET['assunto']:null;
-                 if ($assuntoSelecionado) {
-                     $sql = " WHERE assunto == '$assuntoSelecionado'";
-                     echo "<h2>Filtrando por Assunto: $assuntoSelecionado</h2>";
-                 }else {
-                     echo "<h2>Ver Todos os Posts</h2>";
-                 }
-                // Loop para exibir todos os posts do usuário
-                foreach ($posts as $post) {
-                    if (!$assuntoSelecionado || $post['assunto'] === $assuntoSelecionado) {
+
+                    $assuntoSelecionado = isset($_GET['assunto'])? $_GET['assunto']:null;
+
+                    if ($assuntoSelecionado) {
+                        $sql = " WHERE assunto == '$assuntoSelecionado'";
+                        echo "<h2>Filtrando por Assunto: $assuntoSelecionado</h2>";
+                    }else {
+                        echo "<h2>Ver Todos os Posts</h2>";
+                    }
+
+                    // Loop para exibir todos os posts do usuário
+                    foreach ($posts as $post) {
+                        if (!$assuntoSelecionado || $post['assunto'] === $assuntoSelecionado) {
                 ?>
+                    <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg> 
                     <div class="post_user">
-                        <p class="post_title"><?php echo $post['titulo']; ?></p>
                         <p class="post_autor"><?php echo $dados_usuario['nome_user']; ?></p>
+                        <p class="post_title"><?php echo $post['titulo']; ?></p>
                     </div>  
                     
                     <div class="post_box">
-                        <p><?php echo $post['conteudo']; ?></p>
+                        <p class="conteudo"><?php echo $post['conteudo']; ?></p>
                         
                         <!-- Botão/link "Ver Detalhes" que leva para verPost.php com o ID do post como parâmetro -->
                          <a href='verPost.php?id_post=<?php echo $post['id']; ?>'>Ver Detalhes</a>

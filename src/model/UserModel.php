@@ -52,6 +52,7 @@ class User_Model {
     }
 }
 
+
 /*
     $user = new User_Model();
 
@@ -62,3 +63,4 @@ class User_Model {
 */
 
 ?>
+

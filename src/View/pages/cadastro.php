@@ -115,7 +115,8 @@ include_once '..\..\config\connection.php';
                 <br><br>
                 <input type="submit" name="SendCadUser" id="submit"><br><br>
 
-                <p>Já possui uma conta? <a href="http://localhost:8000/src/view/pages/login.php" class="link">Login</a></p>
+                <input type="submit" name="SubmitEditPost" id="SubmitEditPost"><br><br>
+                <a href="http://localhost:8000/src/View/pages/home.php" class="link" style="color: #7F40B0;">Cancelar alteração</a>
                 
 
             </fieldset>

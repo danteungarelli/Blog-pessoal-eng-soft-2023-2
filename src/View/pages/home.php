@@ -78,6 +78,32 @@ session_start(); //Iniciar Sessão
         </div>
     </div>
 
+    <div class="container mt-4">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="home.php">Ver Todos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="home.php?assunto=Futebol">Futebol</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="home.php?assunto=Notícia">Notícias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="home.php?assunto=Carros">Carros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="home.php?assunto=Música">Música</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="home.php?assunto=Filmes e Series">Filmes e Séries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="home.php?assunto=Política">Politica</a>
+            </li>
+        </ul>
+    </div>
+
     <div class="container mt-5">
     <div class="row justify-content-center">
         <?php foreach ($posts as $post) { ?>

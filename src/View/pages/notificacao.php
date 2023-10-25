@@ -51,11 +51,18 @@ ob_start();
     <title>Pagina de Notificações</title>
 
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
+
+<style>
+    body{
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
     
 </head>
 <body>
     <div class="tela-perfil">
-    <a href="http://localhost:8000/src/View/pages/home.php" class="link" style="color: #7F40B0;">Home</a>
+    <a href="home.php" class="link" style="color: #7F40B0;">Home</a>
     <center><h1>NOTIFICAÇÕES</h1></center>
     <?php
     $notificacoes = array_reverse($notificacoes);

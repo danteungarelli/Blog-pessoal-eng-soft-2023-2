@@ -1,0 +1,36 @@
+    .filtro-bar a {
+        text-decoration: none;
+        padding: 6px 10px;
+        margin: 2% 10px 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 30%;
+        background-color: #C8ACDD;
+        box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        color: black;
+    }
+    .filtro-bar a.ativo {
+        background-color: #007bff;
+        color: #fff;
+        height: 50px;
+    }
+    .filtro-bar a:link{
+        color: black;
+    }
+    .filtro-bar a:visited {
+        
+        color: black;
+        
+    }
+    .filtro-bar a:hover {
+        background-color: #ECDCF8;
+        
+    }
+    .filtro-bar a:active{
+        background-color: #ECDCF8;
+        color: #fff;
+        height: 50px;
+    }
+    .filtro-bar{
+        margin-top: 2%;
+    }

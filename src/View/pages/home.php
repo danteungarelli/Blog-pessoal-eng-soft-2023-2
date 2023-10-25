@@ -1,25 +1,24 @@
 <?php
-session_start(); //Iniciar Sessão
+session_start();
 
+ob_start();
 
-    // Limpar o buffer de redirecionamento
-    ob_start();
+require_once ("../index.php");
 
-    //Incluir arquivo para validar e recuperar token
+if (!validarToken()) {
+    $_SESSION['msg'] = "<p style='color: #fff;'> Erro: Necessário realizar o login para acessar a página!</p>";
+    echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
+    header("Location: login.php");
+    exit();
+}
 
-    require_once ("../index.php");
-    
-    // Chamar função validar o token, se for false -> token é invalido e acessa o If
-    if(!validarToken()){
-        //Criar mensagem de erro e atribuir para a variavel global
-        $_SESSION['msg'] = "<p style='color: #fff;'> Erro: Necessário realizar o login para acessar a página!</p>";
-        echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
-        //Redirecionar usuario para a pagina de login
-        header("Location: login.php");
-
-        //Parar o processamento da página
-        exit();
-    }
+if (!empty($_GET['search'])) {
+    $dados = $_GET['search'];
+    echo $dados;
+    $urlResultado = "resultados.php?search=$$dados";
+    header("Location: $urlResultado");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +40,6 @@ session_start(); //Iniciar Sessão
     </style>
 </head>
 <body>
-
     <?php
     require_once("../../model/UserModel.php");
     $id_user = recuperarIDToken();
@@ -92,7 +90,7 @@ session_start(); //Iniciar Sessão
             <li class="nav-item">
                 <a class="nav-link" href="home.php?assunto=Carros">Carros</a>
             </li>
-            <li class="nav-item">
+            <li class "nav-item">
                 <a class="nav-link" href="home.php?assunto=Música">Música</a>
             </li>
             <li class="nav-item">
@@ -105,10 +103,11 @@ session_start(); //Iniciar Sessão
     </div>
 
     <div class="container mt-5">
-    <div class="row justify-content-center">
-        <?php foreach ($posts as $post) { ?>
-        <div class="col-md-6 mb-4">
-
+        <div class="row justify-content-center">
+            <?php
+            foreach ($posts as $post) {
+            ?>
+            <div class="col-md-6 mb-4">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-success"><?php echo $post['assunto']; ?></strong>
@@ -120,15 +119,28 @@ session_start(); //Iniciar Sessão
                         <a href="edit.php?id=<?php echo $post['id']?>">Editar</a>
                     </div>
                 </div>
-
+            </div>
+            <?php
+            }
+            ?>
         </div>
-        <?php } ?>
     </div>
-</div>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
+
+<!-- Funções Barra de Pesquisa -->
+<script>
+    var search = document.getElementById('pesquisar');
+
+    search.addEventListener("keydown", function(event) {
+        if (event.key == "Enter") {
+            searchData();
+        }
+    });
+
+    function searchData() {
+        window.location = 'home.php?search=' + search.value;
+    }
+</script>
 </html>

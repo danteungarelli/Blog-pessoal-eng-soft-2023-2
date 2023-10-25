@@ -1,75 +1,47 @@
-#icon{
-    position: relative;
-    left: 3.5%;
-    transform: translate(-50%, 140%);
-    z-index: 100;
+body {
     background-color: #FFFFF1;
-    border-radius: 60%;
-    margin-top: 0%;
+    margin: 0; 
+    padding: 0;
 }
+
 .post_user {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    width: 100%;
+    border: 2px solid #7F40B0;
     border-bottom: 0px;
     border-radius: 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 0px;
-    background-color: #7F40B0;
-    padding-top: 2%;
-    
+    background-color: #C8ACDD;
 }
 
 .post_box {
-    position: relative ;
-    left: 50%;
-    transform: translate(-50%);
-    width: 100%;
+    border: 2px solid #7F40B0;
     border-radius: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding: 5.5px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #ECDCF8;
-
+    background-color: #FFFFF1;
 }
 
 .post_title {
-    padding-left: 30%;
+    float: inline-start;
     font-weight: bold;
-    padding: 0%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    margin-left: 30%;
-    margin-right: 30%;
      /* Ajuste a margem inferior conforme necessário */
 }
 .post_autor{
-    float: inline-start;
-    margin: 0%;
-    margin-left: 8%;
-    padding: 0;
+    float: right;
 
 }
 .post_title, .post_autor {
     display: inline-block;
     vertical-align: middle; /* Opcional, para alinhar verticalmente os textos */
-    align-items: center;
 }
-.conteudo{
-    padding-left: 10px;
-    padding-right: 6px;
-    margin-left: 7%;
-    margin-right: 3%;
-}
+
 
 .top_box {
     display: flex;
@@ -86,6 +58,7 @@
     margin: 0; /* Remova o margin-left */
     flex: 1; /* Isso faz com que o texto "Home" ocupe o espaço restante no centro */
     text-align: center; /* Centralize o texto */
+    cursor: pointer;
 }
 
 .menu-button {
@@ -162,7 +135,6 @@
 .content.adjusted {
     margin-left: 250px; /* Largura da barra lateral quando estiver visível */
     transition: margin-left 0.5s; /* Adicione uma transição suave */
-    
 }
 .botao_x{
     background-color: #7F40B0;
@@ -188,55 +160,10 @@
     background-color: #C8ACDD;
 }
 
-
-
-.content{
-    margin: 50px auto;
-    width: 60%;
-   
-    align-items: center;
+.content {
+    margin-left: 0;
+    padding: 20px;
 }
-
-.like-button {
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.like-button.liked {
-    background-color: #f44336; /* Vermelho quando curtido */
-    color: #ffffff;
-}
-
-.like-button.not-liked {
-    background-color: #ccc;
-    color: #333;
-}
-
-.like-button:hover {
-    background-color: #555;
-    color: #fff;
-    animation: heartBeat 0.5s;
-}
-
-@keyframes heartBeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    10%, 30%, 50%, 70%, 90% {
-        transform: scale(1.3);
-    }
-}
-
 
 .box-search{
     display: flex;
@@ -246,3 +173,6 @@
 .form-control{
     width: 400px;
 }
+
+
+

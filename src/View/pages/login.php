@@ -38,6 +38,12 @@ if(isset($_SESSION['msg'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>    
 
     <style>
         body {

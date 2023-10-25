@@ -17,6 +17,12 @@ include_once '..\..\config\connection.php';
     <title>Cadastro de Usuário</title>
     
     <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>    
 
 </head>
 <body>

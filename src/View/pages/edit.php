@@ -37,7 +37,7 @@ if (isset($_POST['SubmitEditPost'])) {
     $assunto = $_POST['assunto'];
     $slug = $_POST['slug'];
     if (!empty($_GET['id'])){
-    $post_id = $_GET['id'];
+        $post_id = $_GET['id'];
     }
     $conexao = new Connection();
     $pdo = $conexao->getConnection();
@@ -64,57 +64,57 @@ if (isset($_POST['SubmitEditPost'])) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Resto do código de cabeçalho -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Postagem</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body>
-<?php
 
-?>
-
-<div class="box">
-    <form action="edit.php?id=<?php echo $post_id; ?>" method="post">
-        <fieldset>
-            <legend><b>Editar Postagem</b></legend>
-            <br>
-
-            <!-- Campos de edição da postagem com valores preenchidos a partir do banco de dados -->
-            <div class="InputBox">
-                <input type="text" name="titulo" id="titulo" class="InputUser" required value="<?php echo $postagem['titulo']; ?>">
-                <label for="titulo" class="labelInput">Título</label>
-            </div>
-            <br><br>
-
-            <!-- Campos de edição para outros atributos da postagem -->
-            <div class="InputBox">
-                <textarea name="conteudo" id="conteudo" class="InputUser" required><?php echo $postagem['conteudo']; ?></textarea>
-                <label for="conteudo" class="labelInput">Conteúdo</label>
-            </div>  
-            <br><br>
-
-            <div class="InputBox">
-                <input type="text" name="assunto" id="assunto" class="InputUser" required value="<?php echo $postagem['assunto']; ?>">
-                <label for="assunto" class="labelInput">Assunto</label>
-            </div>
-            <br><br>
-
-            <div class="InputBox">
-                <input type="text" name="slug" id="slug" class="InputUser" required value="<?php echo $postagem['slug']; ?>">
-                <label for="slug" class="labelInput">Slug</label>
-            </div>
-
-            <br><br>
-
-      <input type="submit" name="SubmitEditPost" id="SubmitEditPost"><br><br>
-      <a href="http://localhost:8000/src/View/pages/home.php" class="link" style="color: #7F40B0;">Cancelar alteração</a>
-      
-
-
-</fieldset>
-    </form>
+<div class="container mt-5">
+    <h1 class="text-center">Editar Postagem</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="edit.php?id=<?php echo $post_id; ?>" method="post">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control" required value="<?php echo $postagem['titulo']; ?>">
+                </div>
+                
+                <div class="form-group">
+                    <label for="conteudo">Conteúdo</label>
+                    <textarea name="conteudo" id="conteudo" class="form-control" required><?php echo $postagem['conteudo']; ?></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" name="assunto" id="assunto" class="form-control" required value="<?php echo $postagem['assunto']; ?>">
+                </div>
+                
+                <div class="form-group">
+                    <label for="slug">Slug</label>
+                    <input type="text" name="slug" id="slug" class="form-control" required value="<?php echo $postagem['slug']; ?>">
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" name="SubmitEditPost" class="btn btn-primary">Salvar Alterações</button>
+                    <a href="home.php" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
-
-
-           

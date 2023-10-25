@@ -2,77 +2,87 @@
 session_start();
 ob_start();
 
-// Inclua o arquivo que contém a definição da variável $pdo
+require_once("../index.php");
 
-require_once ("../index.php");
-
-
-// Verifique se o usuário está autenticado antes de permitir o acesso a esta página
 if (!isset($_COOKIE['token']) || !validarToken()) {
-    // Redirecionar para a página de login ou exibir uma mensagem de erro
     header("Location: login.php");
-    exit; // Encerrar a execução do script
+    exit;
 }
 
-// Verifique se o parâmetro id_post foi fornecido na URL
 if (isset($_GET['id_post'])) {
-    // Recupere o ID do post da URL
     $id_post = $_GET['id_post'];
 
-    // Conecte-se ao banco de dados
     include_once '../../config/connection.php';
     
     $conexao = new Connection();
     $pdo = $conexao->getConnection();
+    
 
-    // Consulta SQL para obter os detalhes do post com base no ID
     $sql = "SELECT * FROM postagens WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $id_post, PDO::PARAM_INT);
     $stmt->execute();
 
-    // Verifique se o post foi encontrado
     if ($stmt->rowCount() > 0) {
         $post = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Post</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
 
-        // Agora você pode exibir os detalhes do post
-        echo "<table border='1'>";
-        echo "<tr>";
-        echo "<td>Id do post</td>";
-        echo "<td>Título</td>";
-        echo "<td>Conteúdo</td>";
-        echo "<td>Data de publicação</td>";
-        echo "<td>Id do autor</td>";
-        echo "<td>Assunto</td>";
-        echo "<td>Slug</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td>{$post['id']}</td>";
-        echo "<td>{$post['titulo']}</td>";
-        echo "<td>{$post['conteudo']}</td>";
-        echo "<td>{$post['data_publicacao']}</td>";
-        echo "<td>{$post['autor_id']}</td>";
-        echo "<td>{$post['assunto']}</td>";
-        echo "<td>{$post['slug']}</td>";
-        echo "</tr>";
-        echo "</table>";
+<div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ver Detalhes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addPost.php">Criar Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="blog-post">
+            <h2 class="blog-post-title"><?php echo $post['titulo']; ?></h2>
+            <p class="blog-post-meta"><?php echo $post['data_publicacao']; ?> by <?php echo $post['autor_id']; ?></p>
+            <p><?php echo $post['conteudo']; ?></p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+<?php
     } else {
         echo "Post não encontrado";
     }
 } else {
     echo "ID do post não especificado na URL";
 }
-
-echo '<a href="javascript:void(0);" class="link" style="color: #7F40B0;" onclick="goBack()">Voltar.</a>';
 ?>
-    
-<script>
-function goBack() {
-    window.history.back();
-    exit;
-}
-</script>
-
-
-
-

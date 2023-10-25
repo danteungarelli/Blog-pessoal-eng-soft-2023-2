@@ -9,10 +9,8 @@ if(!validarToken()){
     $_SESSION['msg'] = "<p style='color: #f00;'> Erro: Necessário realizar o login para acessar adicionar uma publicação!</p>";
     echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
     header("Location: login.php");
-
     exit();
 }
-
 
 include_once '../../config/connection.php';
 
@@ -58,52 +56,84 @@ if (isset($_POST['SubmitPost'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Postagem</title>
     
-    <link rel="stylesheet" href="../css/addPost.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body>
 
-<?php
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']); 
-}
-?>
-
-<div class="box">
-    <form action="addPost.php" method="post">
-        <fieldset>
-            <legend><b>Adicionar Nova Postagem</b></legend>
-            <br>
-
-            <div class="InputBox">
-                <input type="text" name="titulo" id="titulo" class="InputUser" required>
-                <label for="titulo" class="labelInput">Título</label>
+<div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Adicionar Post</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addPost.php">Criar Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
+                </ul>
             </div>
-            <br><br>
+        </div>
+    </div>
 
-            <div class="InputBox">
-                <textarea name="conteudo" id="conteudo" class="InputUser" required></textarea>
-                <label for="conteudo" class="labelInput">Conteúdo</label>
-            </div>  
-            <br><br>
 
-            <div class="InputBox">
-                <input type="text" name="assunto" id="assunto" class="InputUser" required>
-                <label for="assunto" class="labelInput">Assunto</label>
-            </div>
-            <br><br>
+<div class="container mt-5">
+    <h1 class="text-center">Adicionar Nova Postagem</h1>
+    
+    <?php
+    if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']); 
+    }
+    ?>
 
-            <div class="InputBox">
-                <input type="text" name="slug" id="slug" class="InputUser" required>
-                <label for="slug" class="labelInput">Slug</label>
-            </div>
-            <br><br>
-
-            <input type="submit" name="SubmitPost" id="SubmitPost"><br><br>
-        </fieldset>
-    </form>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="addPost.php" method="post">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="conteudo">Conteúdo</label>
+                    <textarea name="conteudo" id="conteudo" class="form-control" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" name="assunto" id="assunto" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="slug">Slug</label>
+                    <input type="text" name="slug" id="slug" class="form-control" required>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" name="SubmitPost" class="btn btn-primary">Adicionar Postagem</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

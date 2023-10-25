@@ -17,6 +17,12 @@ include_once '..\..\config\connection.php';
     <title>Cadastro de Usuário</title>
     
     <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>    
 
 </head>
 <body>
@@ -115,8 +121,7 @@ include_once '..\..\config\connection.php';
                 <br><br>
                 <input type="submit" name="SendCadUser" id="submit"><br><br>
 
-                <input type="submit" name="SubmitEditPost" id="SubmitEditPost"><br><br>
-                <a href="http://localhost:8000/src/View/pages/home.php" class="link" style="color: #7F40B0;">Cancelar alteração</a>
+                <p>Já possui uma conta? <a href="login.php" class="link">Login</a></p>
                 
 
             </fieldset>

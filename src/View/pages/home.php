@@ -13,7 +13,7 @@ if (!validarToken()) {
 if (!empty($_GET['search'])) {
     $dados = $_GET['search'];
     echo $dados;
-    $urlResultado = "resultados.php?search=$$dados";
+    $urlResultado = "resultados.php?search=$dados";
     header("Location: $urlResultado");
     exit;
 }

@@ -19,6 +19,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>    
 </head>
 <body>
     <?php
@@ -101,70 +109,81 @@
         
     ?>
     
-    <form action="" method="post">
-            <fieldset>
-                <legend> <b>Editar informações do Perfil</b> </legend>
-                <br>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="" method="post">
+                    <fieldset>
+                        <legend><b>Editar informações do Perfil</b></legend>
+                        <br>
 
-                <!--Nome Completo-->
-                <div class="InputBox">
-                    <p>Nome Completo: <?php echo $dados_user['nome_completo']?></p>
-                    <input type="text" name="nome_completo" id="nome_completo" class="InputUser" required>
-                    <label for="nome_completo" class="labelInput">Nome Completo</label>
+                        <!-- Nome Completo -->
+                        <div class="mb-3">
+                            <p>Nome Completo: <?php echo $dados_user['nome_completo']; ?></p>
+                            <input type="text" name="nome_completo" id="nome_completo" class="form-control" required>
+                            <label for="nome_completo" class="form-label">Nome Completo</label>
+                        </div>
+                        <br><br>
 
-                    
-                </div>
-                <br><br>
+                        <!-- Nome de Usuário -->
+                        <div class="mb-3">
+                            <p>Nome de Usuário: <?php echo $dados_user['nome_user']; ?></p>
+                            <input type="text" name="nome_user" id="nome_user" class="form-control" required>
+                            <label for="nome_user" class="form-label">Nome de Usuário</label>
+                        </div>
+                        <br><br>
 
-                <!--Nome de Usuário-->
-                <div class="InputBox">
-                    <p>Nome de usuario: <?php echo $dados_user['nome_user']?></p>
-                    <input type="text" name="nome_user" id="nome_user" class="InputUser" required>
-                    <label for="nome_user" class="labelInput">Nome de Usuário</label>
-                </div>  
-                <br><br>
+                        <!-- Senha -->
+                        <div class="mb-3">
+                            <input type="password" name="senha" id="senha" class="form-control" required>
+                            <label for="senha" class="form-label">Definir Senha</label>
+                        </div>
+                        <br><br>
 
-                <!--Senha-->
-                <div class="InputBox">
-                    <input type="password" name="senha" id="senha" class="InputUser" required>
-                    <label for="senha" class="labelInput">Definir Senha</label>
-                </div>
-                <br><br>
+                        <!-- Sexo -->
+                        <p>Sexo: <?php echo $dados_user['sexo']; ?></p>
+                        <p>Sexo:</p>
+                        <div class="form-check">
+                            <input type="radio" id="feminino" name="genero" value="feminino" class="form-check-input" required>
+                            <label for="feminino" class="form-check-label">Feminino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="masculino" name="genero" value="masculino" class="form-check-input" required>
+                            <label for="masculino" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="outro" name="genero" value="outro" class="form-check-input" required>
+                            <label for="outro" class="form-check-label">Outro</label>
+                        </div>
+                        <br><br>
 
-                <!--Sexo-->
-                <p>Sexo: <?php echo $dados_user['sexo']?></p>
-                <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
-                <label for="feminino">Feminino  </label>
-                <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
-                <label for="masculino">Masculino  </label> 
-                <br>
-                <input type="radio" id="outro" name="genero" value="outro" required>
-                <label for="outro">Outro</label> 
-                <br><br>
+                        <!-- Data de Nascimento -->
+                        <div class="mb-3">
+                            <p>Data de Nascimento: <?php echo $dados_user['data_nascimento']; ?></p>
+                            <label for="data_nascimento" class="form-label"><b>Data de Nascimento:</b></label>
+                            <br><br>
+                            <input type="date" name="data_nascimento" id="data_nascimento" class="form-control" required>
+                        </div>
+                        <br><br>
 
-                <!--Data de Nascimento-->
-                    <p>Data de Nascimento: <?php echo $dados_user['data_nascimento']?></p>
-                    <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-                    <br><br>
-                    <input type="date" name="data_nascimento" id="data_nascimento" required>
-                <br><br>
-               
+                        <!-- Bio -->
+                        <div class="mb-3">
+                            <p>Bio: <?php echo $dados_user['bio']; ?></p>
+                            <input type="text" name="bio" id="bio" class="form-control" required>
+                            <label for="bio" class="form-label">Bio</label>
+                        </div>
+                        <br><br>
 
-                <!--bio-->
-                <div class="InputBox">
-                    <p>Bio: <?php echo $dados_user['bio']?></p>
-                    <input type="text" name="bio" id="bio" class="InputUser" required>
-                    <label for="bio" class="labelInput">Bio</label>
-                </div>
-                <br><br>
+                        <div class="mb-3">
+                            <input type="submit" name="SubmitEditPost" id="SubmitEditPost" class="btn btn-primary">
+                        </div>
+                        <a href="http://localhost:8000/src/View/pages/perfil.php" class="link" style="color: #7F40B0;">Cancelar alteração</a>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
 
-                <input type="submit" name="SubmitEditPost" id="SubmitEditPost"><br><br>
-                <a href="http://localhost:8000/src/View/pages/perfil.php" class="link" style="color: #7F40B0;">Cancelar alteração</a>
-
-            </fieldset>
-    </form>
 </body>
 </html>
 

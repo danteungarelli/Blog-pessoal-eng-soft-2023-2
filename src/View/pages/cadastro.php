@@ -74,35 +74,30 @@ include_once '..\..\config\connection.php';
                 <legend> <b>Cadastre sua conta</b> </legend>
                 <br>
 
-                <!--Nome Completo-->
                 <div class="InputBox">
                     <input type="text" name="nome" id="nome" class="InputUser" required>
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
                 <br><br>
 
-                <!--Nome de Usuário-->
                 <div class="InputBox">
                     <input type="text" name="nomeUser" id="nomeUser" class="InputUser" required>
                     <label for="nomeUser" class="labelInput">Nome de Usuário</label>
                 </div>  
                 <br><br>
 
-                <!--Email-->
                 <div class="InputBox">
                     <input type="text" name="email" id="email" class="InputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
 
-                <!--Senha-->
                 <div class="InputBox">
                     <input type="password" name="senha" id="senha" class="InputUser" required>
                     <label for="senha" class="labelInput">Definir Senha</label>
                 </div>
                 <br><br>
 
-                <!--Sexo-->
                 <p>Sexo:</p>
                 <input type="radio" id="feminino" name="genero" value="feminino" required>
                 <label for="feminino">Feminino  </label>
@@ -114,7 +109,6 @@ include_once '..\..\config\connection.php';
                 <label for="outro">Outro</label> 
                 <br><br>
 
-                <!--Data de Nascimento-->
                     <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                     <br><br>
                     <input type="date" name="data_nascimento" id="data_nascimento" required>

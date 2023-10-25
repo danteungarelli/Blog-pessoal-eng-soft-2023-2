@@ -39,6 +39,20 @@ class User_Model {
 
     }
 
+    function buscarUsuarios($parametro){
+
+        $connect = new Connection ();
+
+        $sql = $connect -> getConnection () -> query (
+            "SELECT * FROM usuario WHERE nome_user Like'%$parametro%' or nome_completo LIKE'%$parametro%' ORDER BY id_user"
+        );
+        $sql = $sql -> fetchAll (PDO::FETCH_ASSOC);
+
+        return $sql;
+
+
+    }
+
     function notificacoes($id){
 
         $connect = new Connection ();

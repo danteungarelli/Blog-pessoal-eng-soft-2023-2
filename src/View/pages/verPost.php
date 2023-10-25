@@ -63,10 +63,15 @@ if (isset($_GET['id_post'])) {
     echo "ID do post não especificado na URL";
 }
 
-echo '<a href="http://localhost:8000/src/View/pages/home.php" class="link" style="color: #7F40B0;">Cancelar alteração</a>';
+echo '<a href="javascript:void(0);" class="link" style="color: #7F40B0;" onclick="goBack()">Voltar.</a>';
 ?>
     
-
+<script>
+function goBack() {
+    window.history.back();
+    exit;
+}
+</script>
 
 
 

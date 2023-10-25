@@ -20,6 +20,18 @@ session_start(); //Iniciar Sessão
         //Parar o processamento da página
         exit();
     }
+
+    //Redirecionamento Para a Página de Resultados
+    if(!empty($_GET['search'])){
+        $dados = $_GET['search'];
+        echo $dados;
+ 
+        $urlResultado = "resultados.php?search=$$dados";
+        header("Location: $urlResultado");
+        exit; // Certifique-se de sair após o redirecionamento
+ 
+        
+     }
 ?>
 
 <!DOCTYPE html>
@@ -115,8 +127,21 @@ session_start(); //Iniciar Sessão
                 <a href="home.php?assunto=Filmes e Series">Filmes e Séries</a>
                 <a href="home.php?assunto=Política">Politica</a>
                 <!-- Adicione mais links para os outros assuntos -->
-            
+
             </div>
+            
+            <!--Barra de Pesquisa -->
+            <br>
+            <div class="box-search">
+                    <input type="search" class="form-control" placeholder="Pesquisar Usuário" id="pesquisar">
+                    <button onclick="searchData()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+
+
 
             <div class="content">
                 <?php
@@ -162,11 +187,11 @@ session_start(); //Iniciar Sessão
                          $stmt->execute();
                          $existing_like = $stmt->fetch(PDO::FETCH_ASSOC);
                          
-                    if ($existing_like) {
-                        $buttonClass = "liked";
-                                  } else {
-                                   $buttonClass = "not-liked";
-                                            }
+                        if ($existing_like) {
+                            $buttonClass = "liked";
+                        } else {
+                            $buttonClass = "not-liked";
+                        }
                     
                     $sql = "SELECT COUNT(*) AS numlikes FROM likes WHERE id_post = :idpost";
                     $stmt = $pdo->prepare($sql);
@@ -215,4 +240,20 @@ session_start(); //Iniciar Sessão
             
     </div>
 </body>
+<!--Funções Barra de Pesquisa-->
+<script>
+    var search = document.getElementById('pesquisar');
+    
+    search.addEventListener("keydown", function(event){
+        if(event.key == "Enter"){
+            searchData();
+        }
+    });
+
+    function searchData(){
+        window.location = 'home.php?search='+search.value;
+    }
+</script>
+
+
 </html>

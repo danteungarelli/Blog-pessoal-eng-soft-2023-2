@@ -82,6 +82,7 @@
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':nome_completo', $nome_completo, PDO::PARAM_STR);
             $stmt->bindParam(':nome_user', $nome_user, PDO::PARAM_STR);
+            $senha = password_hash($senha, PASSWORD_DEFAULT);
             $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
             $stmt->bindParam(':sexo', $sexo, PDO::PARAM_STR);
             $stmt->bindParam(':data_nascimento', $data_nascimento, PDO::PARAM_STR);

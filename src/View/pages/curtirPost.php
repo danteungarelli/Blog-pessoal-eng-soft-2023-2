@@ -122,7 +122,8 @@ if (!empty($_GET['id'])) {
         }
 
         // Redirecione para a página da postagem após a ação
-        header("Location: home.php");
+        echo '<script>window.history.back();</script>';
+        exit;
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();
     }
@@ -132,3 +133,5 @@ if (!empty($_GET['id'])) {
 
 }
 ?>
+
+<script>window.history.back();</script>

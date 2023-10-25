@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
@@ -100,40 +101,39 @@
                                     </p>
                                     <a href='verPost.php?id_post=<?php echo $post['id']; ?>' class="card-link">Ver mais</a>
                                     <?php
-                                    $idpost = $post['id'];
-                                    $conexao = new Connection();
-                                    $pdo = $conexao->getConnection();
-                                    $query = "SELECT * FROM likes WHERE id_post = :idpost AND id_usuario = :id_user";
-                                    $stmt = $pdo->prepare($query);
-                                    $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
-                                    $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
-                                    $stmt->execute();
-                                    $existing_like = $stmt->fetch(PDO::FETCH_ASSOC);
+                        $idpost = $post['id'];
+                        $conexao = new Connection();
+                        $pdo = $conexao->getConnection();
+                        $query = "SELECT * FROM likes WHERE id_post = :idpost AND id_usuario = :id_user";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
+                        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $existing_like = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                                    if ($existing_like) {
-                                        $buttonClass = "liked";
-                                    } else {
-                                        $buttonClass = "not-liked";
-                                    }
+                        if ($existing_like) {
+                            $buttonClass = "liked";
+                        } else {
+                            $buttonClass = "not-liked";
+                        }
 
-                                    $sql = "SELECT COUNT(*) AS numlikes FROM likes WHERE id_post = :idpost";
-                                    $stmt = $pdo->prepare($sql);
-                                    $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
-                                    $stmt->execute();
-                                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                        $sql = "SELECT COUNT(*) AS numlikes FROM likes WHERE id_post = :idpost";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                                    if ($result) {
-                                        // O número de curtidas está armazenado em $resultado['numlikes']
-                                        $numlikes = $result['numlikes'];
-                                    }
-                                    ?>
-                                    <form action="curtirPost.php?id=<?php echo $post['id'] ?>" method="post">
-                                        <button type="submit" name="like" value="like"
-                                            class="like-button <?php echo $buttonClass; ?>">
-                                            <i class="fas fa-heart"></i>
-                                            <?php echo "$numlikes &#9829"; ?>
-                                        </button>
-                                    </form>
+                        if ($result) {
+                            // O número de curtidas está armazenado em $resultado['numlikes']
+                            $numlikes = $result['numlikes'];
+                        }
+                        ?>
+                        <form action="curtirPost.php?id=<?php echo $post['id'] ?>" method="post">
+                            <button type="submit" name="like" value="like" class="like-button <?php echo $buttonClass; ?>">
+                                <i class="fas fa-heart"></i>
+                                <?php echo "$numlikes &#9829"; ?>
+                            </button>
+                        </form>
                                 </div>
                             </div>
                         </div>

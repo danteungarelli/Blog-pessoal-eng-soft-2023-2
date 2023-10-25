@@ -74,7 +74,7 @@ ob_start();
 
     ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -100,7 +100,7 @@ ob_start();
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
 
     <div class="container mt-4">
         <div class="row">

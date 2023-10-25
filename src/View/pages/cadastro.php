@@ -17,6 +17,12 @@ include_once '..\..\config\connection.php';
     <title>Cadastro de Usuário</title>
     
     <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>    
 
 </head>
 <body>
@@ -68,35 +74,30 @@ include_once '..\..\config\connection.php';
                 <legend> <b>Cadastre sua conta</b> </legend>
                 <br>
 
-                <!--Nome Completo-->
                 <div class="InputBox">
                     <input type="text" name="nome" id="nome" class="InputUser" required>
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
                 <br><br>
 
-                <!--Nome de Usuário-->
                 <div class="InputBox">
                     <input type="text" name="nomeUser" id="nomeUser" class="InputUser" required>
                     <label for="nomeUser" class="labelInput">Nome de Usuário</label>
                 </div>  
                 <br><br>
 
-                <!--Email-->
                 <div class="InputBox">
                     <input type="text" name="email" id="email" class="InputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
 
-                <!--Senha-->
                 <div class="InputBox">
                     <input type="password" name="senha" id="senha" class="InputUser" required>
                     <label for="senha" class="labelInput">Definir Senha</label>
                 </div>
                 <br><br>
 
-                <!--Sexo-->
                 <p>Sexo:</p>
                 <input type="radio" id="feminino" name="genero" value="feminino" required>
                 <label for="feminino">Feminino  </label>
@@ -108,14 +109,13 @@ include_once '..\..\config\connection.php';
                 <label for="outro">Outro</label> 
                 <br><br>
 
-                <!--Data de Nascimento-->
                     <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                     <br><br>
                     <input type="date" name="data_nascimento" id="data_nascimento" required>
                 <br><br>
                 <input type="submit" name="SendCadUser" id="submit"><br><br>
 
-                <p>Já possui uma conta? <a href="http://localhost:8000/src/view/pages/login.php" class="link">Login</a></p>
+                <p>Já possui uma conta? <a href="login.php" class="link">Login</a></p>
                 
 
             </fieldset>

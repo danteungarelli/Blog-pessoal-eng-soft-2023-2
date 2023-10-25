@@ -1,0 +1,303 @@
+body {
+    background-color: #FFFFF1;
+    font-family:  16px Arial, Helvetica, sans-serif;
+}
+
+.top_box {
+    background-color: #7F40B0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    padding: 3px;
+    margin: 0px auto;
+    align-items: center;
+    margin-bottom: 10px;
+    z-index: 500;
+    
+}
+
+#home_top{
+    float: left;
+    margin-right: 42%;
+    padding: 0px;
+}
+#user_top{
+    float:left;
+    margin-right: 30%;
+    padding: 0px;
+    font-size: 1.5em;
+    font-weight:bold;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    
+}
+#toptxt{
+    float: left;
+    padding: 0px;
+    
+}
+/*////////////////////Informações perfil/////////////////////////////*/
+.perfil_info{
+    display: inline-block;
+    align-items: center;
+    width: 57%;
+   
+    border-radius: 10px;
+    margin: 5% auto;
+    margin-left: 19.5%;
+    padding: 2%;
+  
+    margin-bottom: 0%;
+}
+#icon_perfil{
+    display: inline-block;
+    background-color: #FFFFF1;
+    border-radius: 55%;
+    margin: 0%;
+    position: relative ;
+    left: 2%;
+    transform: translate(-50%, -140%);
+    margin-top: 1%;
+}
+.bio_user{
+    display: inline-block;
+    width: 60%;
+    position: relative ;
+    left: 30%;
+    transform: translate(-50%, -3%);
+    margin: 0%;
+    padding: 0%;
+    
+
+}
+#user{
+    display: inline-block;
+    margin: 1%;
+    font-weight: bolder;
+    font-size: 1.2em;
+    
+}
+#bio{
+    margin: 1%;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    max-height: 150px; /* Defina a altura máxima desejada */
+    overflow-y: auto; /* Ativa a rolagem vertical, se necessário */
+}
+#editar{
+    display: inline-block;
+    margin: 0%;
+    
+    padding: 1% 4% 1% 4%;
+    position: relative;
+    left: 62%;
+    transform: translate(-50%, -6.5);
+    margin-right: 1%;
+    background-color: #C8ACDD;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+#editar:hover{
+    background-color: #ECDCF8;
+}
+.seguidor{
+    display: inline-block;
+    position: relative;
+    left: 30%;
+    transform: translate(-50%, -158%);
+    margin: 0%;
+    padding: 0%;
+}
+#seg{
+    display: inline-block;
+    margin: 0%;
+    margin-bottom: 2%;
+    padding: 3% 5% 3% 5%;
+    margin-right: 1%;
+    background-color: #C8ACDD;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#seg:hover{
+    background-color: #ECDCF8;
+}
+/*////////////////////Caixa Opções Perfil/////////////////////////////*/
+.perfil_box{
+    display: inline-block;
+    width: 59%;
+    background-color: #7F40B0;
+    border-radius: 10px;
+    margin: 1% auto;
+    margin-left: 19.5%;
+    padding: 1%;
+    margin-bottom: 0%;
+
+}
+
+#post_box{
+    background-color: #C8ACDD;
+    width: 30%;
+    float: left;
+    margin-left: 0%;
+    margin-right: 5%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    
+}
+#post_box:hover{
+    background-color: #ECDCF8;
+}
+#comentario_box{
+    background-color: #C8ACDD;
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#comentario_box:hover{
+    background-color: #ECDCF8;
+}
+#curtida_box{
+    background-color: #C8ACDD;
+    width: 30%;
+    float: left;
+    margin-right: 0%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: -2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#curtida_box:hover{
+    background-color: #ECDCF8;
+}
+/*/////////////////////POSTS/////////////*/
+#icon{
+    position: relative;
+    left: 3.5%;
+    transform: translate(-50%, 30%);
+    z-index: 100;
+    background-color: #FFFFF1;
+    border-radius: 60%;
+    margin-top: 0%;
+}
+
+.post_user {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    border-bottom: 0px;
+    border-radius: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    margin-top: -5%;
+    margin-bottom: 0px;
+    background-color: #7F40B0;
+    padding-top: 2%;
+    
+}
+
+.post_box {
+    position: relative ;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding: 5.5px;
+    margin-bottom: 1%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #ECDCF8;
+}
+
+.post_title {
+    padding-left: 30%;
+    font-weight: bold;
+    padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 30%;
+    margin-right: 30%;
+     /* Ajuste a margem inferior conforme necessário */
+}
+
+.post_autor{
+    float: inline-start;
+    margin: 0%;
+    margin-left: 8%;
+    padding: 0;
+}
+.post_title, .post_autor {
+    display: inline-block;
+    vertical-align: middle; /* Opcional, para alinhar verticalmente os textos */
+    align-items: center;
+}
+.conteudo{
+    
+    padding-left: 10px;
+    padding-right: 6px;
+    margin-left: 7%;
+    margin-right: 3%;
+}
+
+.content{
+    margin: 50px auto;
+    width: 60%;
+    margin-top: 10px;
+   
+    align-items: center;
+}
+
+.like-button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like-button.liked {
+    background-color: #f44336; /* Vermelho quando curtido */
+    color: #ffffff;
+}
+
+.like-button.not-liked {
+    background-color: #ccc;
+    color: #333;
+}
+
+.like-button:hover {
+    background-color: #555;
+    color: #fff;
+    animation: heartBeat 0.5s;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: scale(1.3);
+    }
+}
+
+

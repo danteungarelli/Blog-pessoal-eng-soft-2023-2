@@ -115,7 +115,7 @@ include_once '..\..\config\connection.php';
                 <br><br>
                 <input type="submit" name="SendCadUser" id="submit"><br><br>
 
-                <p>Já possui uma conta? <a href="http://localhost:8000/src/view/pages/login.php" class="link">Login</a></p>
+                <p>Já possui uma conta? <a href="login.php" class="link">Login</a></p>
                 
 
             </fieldset>

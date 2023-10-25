@@ -27,117 +27,76 @@ session_start(); //Iniciar Sessão
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de Perfil</title>
+    <title>Página de Perfil</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/home.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
 </head>
 <body>
 
     <?php
-    
-        require_once("../../model/UserModel.php");
-        
-        $id_user = recuperarIDToken();
-        
-
-        $post = new User_Model();
-        $post = $post -> postagens($id_user);
-        $user = new User_Model();
-        $user = $user -> usuarios($id_user);
-
-        $dados_post = $post[0];
-        $dados_usuario = $user[0];
-        
-        //echo "Bem vindo " . recuperarNomeToken() . "<br>";
-
-        //Acessar pagina de perfil
-        //echo"<a href='perfil.php'>Meu Perfil</a><br>";
-
-        // Recuperar todos os posts do usuário
-        $post = new User_Model();
-        $posts = $post->postagens($id_user);
+    require_once("../../model/UserModel.php");
+    $id_user = recuperarIDToken();
+    $post = new User_Model();
+    $post = $post -> postagens($id_user);
+    $user = new User_Model();
+    $user = $user -> usuarios($id_user);
+    $dados_post = $post[0];
+    $dados_usuario = $user[0];
+    $post = new User_Model();
+    $posts = $post->postagens($id_user);
     ?>
 
-    <div class="Tela_Home">
-
-        <div class="top_box">
-            <div class="menu-button" onclick="toggleSidebar()">
-                <div class="container" onclick="myFunction(this)">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <script>
-                    function myFunction(x) {
-                    x.classList.toggle("change");
-                    }
-                </script>
-                        
-                <div class="sidebar">
-                            <!-- Conteúdo da barra lateral, como links -->
-                    <a href="http://localhost:8000/src/View/pages/perfil.php" class="link">Meu Perfil</a>
-                    <a href="http://localhost:8000/src/View/pages/addPost.php" class="Criar_Post">Criar Post</a>
-                    <a href='logout.php'>Sair</a><br></p>
-                </div>
-
-                        <!-- Seu JavaScript para controlar o menu -->
-                <script>
-                    function toggleSidebar() {
-                            var sidebar = document.querySelector(".sidebar");
-                            var content = document.querySelector(".content");
-                            var top_box = document.querySelector(".top_box")
-                        sidebar.classList.toggle("show");
-                        content.classList.toggle("adjusted");
-                        top_box.classList.toggle("adjusted")
-                    }
-                </script>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.php">Meu Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addPost.php">Criar Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
+                </ul>
             </div>
-            
-            <p><h1 class="title">Home</h1></p>
-        </div> 
-
-            <div class="content">
-                <?php
-                // Loop para exibir todos os posts do usuário
-                foreach ($posts as $post) {
-                ?>
-                    <div class="post_user">
-                        <p class="post_title"><?php echo $post['titulo']; ?></p>
-                        <p class="post_autor"><?php echo $dados_usuario['nome_user']; ?></p>
-                    </div>  
-                    
-                    <div class="post_box">
-                        <p><?php echo $post['conteudo']; ?></p>
-                        
-                        <!-- Botão/link "Ver Detalhes" que leva para verPost.php com o ID do post como parâmetro -->
-                         <a href='verPost.php?id_post=<?php echo $post['id']; ?>'>Ver Detalhes</a>
-
-                        <!-- Ícone da Lixeira -->
-                        <a href="http://localhost:8000/src/View/pages/confirmarExclusao.php?id=<?php echo $post['id']?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg>
-
-                        </a>
-
-                        <!-- Ícone de editar -->
-                        <a href="http://localhost:8000/src/View/pages/edit.php?id=<?php echo $post['id']?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg>
-
-                        </a>
-
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-                
-            
+        </div>
     </div>
+
+    <div class="container mt-5">
+    <div class="row justify-content-center">
+        <?php foreach ($posts as $post) { ?>
+        <div class="col-md-6 mb-4">
+
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success"><?php echo $post['assunto']; ?></strong>
+                        <h3 class="mb-0"><?php echo $post['titulo']; ?></h3>
+                        <div class="mb-1 text-muted"><?php echo date('M d', strtotime($post['data_publicacao'])); ?></div>
+                        <p class="mb-auto"><?php echo substr($post['conteudo'], 0, 150); ?>...</p>
+                        <a href='verPost.php?id_post=<?php echo $post['id']; ?>'>Ler mais</a>
+                        <a href="confirmarExclusao.php?id=<?php echo $post['id']?>">Excluir</a>
+                        <a href="edit.php?id=<?php echo $post['id']?>">Editar</a>
+                    </div>
+                </div>
+
+        </div>
+        <?php } ?>
+    </div>
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

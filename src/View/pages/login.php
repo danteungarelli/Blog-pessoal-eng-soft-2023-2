@@ -33,50 +33,78 @@ if(isset($_SESSION['msg'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Login</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/login.css">
-    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(45deg, #C8ACDD, #7F40B0);
+            background-color: #C8ACDD;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            max-width: 400px; 
+        }
+        .tela-login {
+            padding: 20px;
+        }
+
+        .botao {
+            background-color: #7F40B0;
+        }
+    </style>
 </head>
 <body>
-    <div class="tela-login">
-        <center><h1>Login</h1></center>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card tela-login mx-auto">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Login</h1>
 
-    
-
-        <form method="POST" action="">
-
-            <?php
-                $email = "";
-                if(isset($dados['email'])){
-                    $email = $dados['email'];
-                }  
-            ?>
-
-            <label for="email">Login</label>    
-            <input type="text" id="email" name="email" value="<?php echo $email; ?>">
-            <br><br>
-
-            <?php
-                $senha = "";
-                if(isset($dados['senha'])){
-                    $senha = $dados['senha'];
-                }  
-            ?>
-
-            <label for="senha">Senha</label> 
-            <input type="password" id="senha" name="senha">
-            <br><br>
-            
-            <input type="submit" value="Enviar" class="submit">
-        
-        </form>
-        <p>Não possui uma conta? <a href="http://localhost:8000/src/view/pages/cadastro.php" class="link">Cadastre-se</a></p>
-        
+                        <form method="POST" action="">
+                            <?php
+                                $email = "";
+                                if(isset($dados['email'])){
+                                    $email = $dados['email'];
+                                }
+                            ?>
+                            <div class="form-group">
+                                <label for "email">Login</label>
+                                <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
+                            </div>
+                            <?php
+                                $senha = "";
+                                if(isset($dados['senha'])){
+                                    $senha = $dados['senha'];
+                                }
+                            ?>
+                            <div class="form-group">
+                                <label for="senha">Senha</label>
+                                <input type="password" class="form-control" id="senha" name="senha">
+                            </div>
+                            <button type="submit" class="botao btn btn-block">Enviar</button>
+                        </form>
+                        <p class="mt-3">Não possui uma conta? <a href="cadastro.php" class="link">Cadastre-se</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-   
-
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

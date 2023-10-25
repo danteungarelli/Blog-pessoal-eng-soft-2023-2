@@ -1,3 +1,26 @@
+<?php
+session_start(); //Iniciar Sessão
+
+
+// Limpar o buffer de redirecionamento
+ob_start();
+    require_once ("../index.php");
+
+    // Chamar função validar o token, se for false -> token é invalido e acessa o If
+    if(!validarToken()){
+        //Criar mensagem de erro e atribuir para a variavel global
+        $_SESSION['msg'] = "<p style='color: #fff;'> Erro: Necessário realizar o login para acessar a página!</p>";
+
+        //Redirecionar usuario para a pagina de login
+        header("Location: login.php");
+
+        //Parar o processamento da página
+        exit();
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -22,6 +45,7 @@
 
     <?php
     require_once("../../model/UserModel.php");
+    
 
     $id_user = $_GET['id_user'];
     $user = new User_Model();
@@ -101,13 +125,14 @@
                                     </p>
                                     <a href='verPost.php?id_post=<?php echo $post['id']; ?>' class="card-link">Ver mais</a>
                                     <?php
-                        $idpost = $post['id'];
+                                   $idpost = $post['id'];
+                        $idUser = recuperarIDToken();
                         $conexao = new Connection();
                         $pdo = $conexao->getConnection();
-                        $query = "SELECT * FROM likes WHERE id_post = :idpost AND id_usuario = :id_user";
+                        $query = "SELECT * FROM likes WHERE id_post = :idpost AND id_usuario = :idUser";
                         $stmt = $pdo->prepare($query);
                         $stmt->bindParam(':idpost', $idpost, PDO::PARAM_INT);
-                        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+                        $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
                         $stmt->execute();
                         $existing_like = $stmt->fetch(PDO::FETCH_ASSOC);
 

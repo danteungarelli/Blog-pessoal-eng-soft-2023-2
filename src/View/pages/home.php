@@ -59,13 +59,7 @@ if (!empty($_GET['search'])) {
 
     $dados_post = $post[0];
     $dados_usuario = $user[0];
-    
-    //echo "Bem vindo " . recuperarNomeToken() . "<br>";
 
-    //Acessar pagina de perfil
-    //echo"<a href='perfil.php'>Meu Perfil</a><br>";
-
-    // Recuperar todos os posts do usuário
     $post = new User_Model();
     $posts = $post->postagens($id_user);
 ?>

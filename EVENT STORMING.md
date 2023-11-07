@@ -1,0 +1,23 @@
+# Event Storming do Blog-eng-soft-2023-2| Universidade Federal do Tocantins - Palmas
+
+O Event Storming é um workshop criado por Alberto Brandolini. Ele visa facilitar a visualização de subdomínios e bounded contexts, além de auxiliar no processo de estabelecimento da linguagem ubíqua.
+
+Vale ressaltar que o resultado de um event storming não é um diagrama de componentes ou de modelagem de dados, como o UML por exemplo. Muito pelo contrário: ele resulta em uma representação visual totalmente voltada aos comportamentos esperados do software.
+
+Isso permite uma validação rápida e interativa deste modelo não somente pelo time de tecnologia, mas até mesmo por times de produto e negócio.
+
+
+## Levantamento dos requisitos funcionais de nosso projeto: 
+
+## RF.01- Usuário acesso o blog e efetuou o cadastro:*
+
+![Tela_de_Login_e_Cadastro_page-0002[1]](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela_de_Login_e_Cadastro_page-0002%5B1%5D.png)
+
+## RF.02- Usuário realizou o login:
+
+![Tela_de_Login_e_Cadastro_page-0001[1]](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela_de_Login_e_Cadastro_page-0001%5B1%5D.png)
+
+## RF.03- Usuário acessou a home:
+
+![Tela home_page-0001](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela%20home_page-0001.png)
+

@@ -68,4 +68,13 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![TelaHomeSeguidos](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)
 
+## User Story 03:  Fazer comentários em posts
+
+"Como um membro ativo do blog pessoal, desejo poder comentar em publicações de outros usuários para interagir, expressar minha opinião e compartilhar meus pensamentos sobre o conteúdo.."
+
+![telaAdicionarComentario1](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario01.png)
+![telaAdicionarComentario2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario02.png)
+
+
+
 --------

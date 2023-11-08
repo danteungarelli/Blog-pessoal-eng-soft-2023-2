@@ -55,10 +55,16 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 ![exemplo_pratico-Ilustração.drawio](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/exemplo_pratico-Ilustra%C3%A7%C3%A3o.drawio.png)
 
 
-## User Story 01:
+## User Story 01:Seguir usuário
 "Como um membro ativo do blog pessoal, desejo poder seguir outros usuários para acompanhar suas atividades e atualizações durante o uso da plataforma, para me manter atualizado sobre seus conteúdos e interesses."
 
 ![seguir perfil 01](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPerfil.png)
 ![seguir perfil 02](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPerfilSeguido.png)
+
+## User Story 02: Mostrar na página principal os próprios post e os posts dos perfis q ele segue
+
+"Como um membro ativo do blog pessoal, desejo ter acesso às postagens dos perfis que sigo de forma fácil."
+
+![TelaHomeSeguidos](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)
 
 --------

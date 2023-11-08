@@ -34,6 +34,19 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![RF-06](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/RF-06.png)
 
+## RF.07- Usuário visualizou seu post na home:
+
+![proprio post na home](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/proprio%20post%20na%20home.png)
+
+## RF.08- Usuário curtiu seu post:
+
+![Curtiu post](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Curtiu%20post.png)
+
+## RF.09- Usuário visualizou os detalhes do seu post:
+
+![Ver detalhes post](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Ver%20detalhes%20post.png)
+
+
 ## RF.10- Usuário alterou o conteúdo de seu post:
 
 ![Tela Editar Postagem](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaEditarPostagem.png)

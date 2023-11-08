@@ -47,4 +47,4 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ## RF.15- Usuario na home visualizou seus posts e os posts dos perfis que segue:
 
-![Tela home na aba seguidos](hhttps://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)
+![Tela home na aba seguidos](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)

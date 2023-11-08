@@ -21,10 +21,6 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![Tela home_page-0001](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela%20home_page-0001.png)
 
-## RF.03- Usuário acessou a home:
-
-![Tela home_page-0001](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela%20home_page-0001.png)
-
 ## RF.10- Usuário alterou o conteúdo de seu post:
 
 ![Tela Editar Postagem](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaEditarPostagem.png)
@@ -37,18 +33,23 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![Tela Resultado da Pesquisa](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaResultados.png)
 
-## RF.13- Usuario realizou a visualização dos detalhes de outro perfil e os posts do outro perfil:
+## RF.13- Usuário realizou a visualização dos detalhes de outro perfil e os posts do outro perfil:
 
 ![Tela Perfil de outro Usuario](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPerfil.png)
 
-## RF.14- Usuario começou a seguir novo perfil:
+## RF.14- Usuário começou a seguir novo perfil:
 
 ![Tela Perfil de outro Usuario seguido](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPerfilSeguido.png)
 
-## RF.15- Usuario na home visualizou seus posts e os posts dos perfis que segue:
+## RF.15- Usuário na home visualizou seus posts e os posts dos perfis que segue:
 
 ![Tela home na aba seguidos](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)
 
+
+## RF.17- Usuário comentou no post de seu "amigo":
+
+![Tela Comentario 1](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario01.png)
+![Tela Comentario 2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario02.png)
 
 ## Adicionando timeline do Event Storming:
 

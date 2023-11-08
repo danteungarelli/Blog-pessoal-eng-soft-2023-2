@@ -21,6 +21,19 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![Tela home_page-0001](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela%20home_page-0001.png)
 
+## RF.04- Usuário entrou na página "Meu Perfil":
+
+![RF-04](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/RF-04.png)
+
+## RF.05- Usuário editou  suas informações de perfil:
+
+![RF-05](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/RF-05.png)
+
+
+## RF.06- Usuário realizou o primeiro post:
+
+![RF-06](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/RF-06.png)
+
 ## RF.10- Usuário alterou o conteúdo de seu post:
 
 ![Tela Editar Postagem](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaEditarPostagem.png)
@@ -78,6 +91,14 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![telaAdicionarComentario1](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario01.png)
 ![telaAdicionarComentario2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario02.png)
+
+
+## User Story 04:  Repostar posts
+
+"Como um membro ativo do blog pessoal, desejo ter a opção de repostar a publicação de outro usuário, para assim aumentar o alcance do post original.
+
+![telaPostRepostado](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPostRepostado.png)
+
 
 
 

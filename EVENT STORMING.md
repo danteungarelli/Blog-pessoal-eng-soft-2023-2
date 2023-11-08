@@ -9,7 +9,7 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ## Levantamento dos requisitos funcionais de nosso projeto: 
 
-## RF.01- Usuário acesso o blog e efetuou o cadastro:*
+## RF.01- Usuário acessou o blog e efetuou o cadastro:*
 
 ![Tela_de_Login_e_Cadastro_page-0002[1]](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela_de_Login_e_Cadastro_page-0002%5B1%5D.png)
 
@@ -20,4 +20,21 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 ## RF.03- Usuário acessou a home:
 
 ![Tela home_page-0001](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela%20home_page-0001.png)
+
+## RF.03- Usuário acessou a home:
+
+![Tela home_page-0001](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/Tela%20home_page-0001.png)
+
+## RF.10- Usuário alterou o conteúdo de seu post:
+
+![Tela Editar Postagem](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaEditarPostagem.png)
+
+## RF.11- Usuário excluiu seu post:
+
+![Tela Excluir Postagem](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaExcluirPostagem.png)
+
+## RF.12- Usuário realizou a busca de outros perfis:
+
+![Tela Resultado da Pesquisa](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaResultados.png)
+
 

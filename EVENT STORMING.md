@@ -51,6 +51,10 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 ![Tela Comentario 1](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario01.png)
 ![Tela Comentario 2](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/AdicionarCometario02.png)
 
+## RF.19- Usuário repostou post :
+
+![telaPostRepostado](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPostRepostado.png)
+
 ## Adicionando timeline do Event Storming:
 
 ![exemplo_pratico-Ilustração.drawio](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/exemplo_pratico-Ilustra%C3%A7%C3%A3o.drawio.png)

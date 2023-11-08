@@ -37,4 +37,14 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 
 ![Tela Resultado da Pesquisa](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaResultados.png)
 
+## RF.13- Usuario realizou a visualização dos detalhes de outro perfil e os posts do outro perfil:
 
+![Tela Perfil de outro Usuario](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPerfil.png)
+
+## RF.14- Usuario começou a seguir novo perfil:
+
+![Tela Perfil de outro Usuario seguido](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/telaPerfilSeguido.png)
+
+## RF.15- Usuario na home visualizou seus posts e os posts dos perfis que segue:
+
+![Tela home na aba seguidos](hhttps://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)

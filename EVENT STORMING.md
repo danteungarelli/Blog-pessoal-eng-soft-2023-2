@@ -48,3 +48,8 @@ Isso permite uma validação rápida e interativa deste modelo não somente pelo
 ## RF.15- Usuario na home visualizou seus posts e os posts dos perfis que segue:
 
 ![Tela home na aba seguidos](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/TelaHomeSeguidos.png)
+
+
+## Adicionando timeline do Event Storming:
+
+![exemplo_pratico-Ilustração.drawio](https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/Imagens%20do%20event%20storming/exemplo_pratico-Ilustra%C3%A7%C3%A3o.drawio.png)

@@ -62,6 +62,21 @@ if (!empty($_GET['search'])) {
 
     $post = new User_Model();
     $posts = $post->postagens($id_user);
+
+    // Se o formulário de salvar for enviado
+    if (isset($_GET['salvar']) && isset($_GET['id'])) {
+        $id_post = $_GET['id'];
+        $user_model = new User_Model();
+        $salvou = $user_model->salvarPost($id_user, $id_post);
+
+        if ($salvou) {
+            echo("<script> window.alert('Post salvo com sucesso!')</script>");
+        } else {
+            echo("<script> window.alert('Post removido dos posts salvos!')</script>");
+        }
+    } 
+  
+
 ?>
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -83,6 +98,9 @@ if (!empty($_GET['search'])) {
                         <a href="notificacao.php" class="nav-link">
                         <span class="badge badge-danger"><?php echo $resul['cont'];?></span> Notificações
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="postsSalvos.php">Posts Salvos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Sair</a>
@@ -157,6 +175,8 @@ if (!empty($_GET['search'])) {
                         <a href='verPost.php?id_post=<?php echo $post['id']; ?>'>Ler mais</a>
                         <a href="confirmarExclusao.php?id=<?php echo $post['id']?>">Excluir</a>
                         <a href="edit.php?id=<?php echo $post['id']?>">Editar</a>
+                        <a href="home.php?salvar=true & id=<?php echo $post['id'];?>">Salvar</a>
+
                         <!-- Adicione a seção de curtir a seguir -->
                         <!-- Verificando se o post já foi curtido e o número de curtidas -->
                         <?php

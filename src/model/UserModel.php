@@ -145,6 +145,58 @@ class User_Model {
 
     }
 
+     function salvarPost($id_user, $id_post) {
+        $conexao = new Connection();
+        $pdo = $conexao->getConnection();
+
+        // Verifica se o post já está salvo pelo usuário
+        $query = "SELECT * FROM posts_salvos WHERE id_usuario = :id_usuario AND id_post = :id_post";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_usuario', $id_user, PDO::PARAM_INT);
+        $stmt->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $stmt->execute();
+        $existing_save = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($existing_save) {
+            // Se já estiver salvo, remove o salvamento
+            $query = "DELETE FROM posts_salvos WHERE id_usuario = :id_usuario AND id_post = :id_post";
+        } else {
+            // Se não estiver salvo, adiciona o salvamento
+            $query = "INSERT INTO posts_salvos (id_usuario, id_post) VALUES (:id_usuario, :id_post)";
+        }
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_usuario', $id_user, PDO::PARAM_INT);
+        $stmt->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Retorna o status (salvou ou desfez o salvamento)
+        return !$existing_save;
+    }
+
+    function postsSalvos($id_user){
+        $conexao = new Connection();
+        $pdo = $conexao->getConnection();
+
+        // Consulta SQL para obter todos os IDs dos posts salvos pelo usuário
+        $query = "SELECT id_post FROM posts_salvos WHERE id_usuario = :id_usuario";
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id_usuario', $id_user, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Retorna os IDs dos posts salvos
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function postagensSalvos($id_post){
+        $connect = new Connection();
+
+        $sql = $connect -> getConnection () -> query ("SELECT * FROM postagens WHERE id = '$id_post'");
+        $sql = $sql -> fetchAll (PDO::FETCH_ASSOC);
+
+        return $sql;
+    }
 
 }
 

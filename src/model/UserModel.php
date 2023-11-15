@@ -3,6 +3,7 @@
 
 require_once ("../../config/connection.php");
 
+require_once ("../../View/index.php");
 
 class User_Model {
 
@@ -64,6 +65,87 @@ class User_Model {
 
 
     }
+
+    function verificarSeguir($id_user){
+        $connect = new Connection ();
+
+        $usuario = recuperarIDToken();
+
+        $sql = $connect -> getConnection () -> prepare ("SELECT * FROM seguir WHERE id_usuario = '$usuario' and id_seguido ='$id_user'");
+        $sql -> execute();
+
+        if ($sql !== false) {
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+            if(count($result) > 0){
+                return true;
+            } 
+            else {
+                return false;
+            }
+        } 
+    }
+
+
+    function seguirUsuario($id_user){
+        $connect = new Connection ();
+
+        $usuario = recuperarIDToken();
+
+        
+        if($this->verificarSeguir($id_user)){
+            $sql = $connect->getConnection()->prepare("DELETE FROM seguir WHERE id_usuario = :usuario and id_seguido = :id_user");
+            $sql->bindParam(':usuario', $usuario, PDO::PARAM_INT);
+            $sql->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+            $sql->execute();
+            
+
+        }
+        else{
+
+            $sql = $connect->getConnection()->prepare("INSERT INTO seguir (id_usuario, id_seguido) VALUES (:usuario, :id_user)");
+            $sql->bindParam(':usuario', $usuario, PDO::PARAM_INT);
+            $sql->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+
+            $sql -> execute();
+
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+
+        }
+    }
+
+
+    function contarSeguidores($id_user){
+        $connect = new Connection ();
+
+        $sql = $connect -> getConnection () -> prepare ("SELECT COUNT(*) AS num_seguidores FROM seguir WHERE id_seguido = :id_user");
+        $sql->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $sql -> execute();
+
+        $result = $sql->fetch(PDO::FETCH_ASSOC);
+
+        return $result['num_seguidores'];
+
+
+    }
+    
+
+    function contarSeguindo($id_user){
+        $connect = new Connection ();
+
+        $sql = $connect -> getConnection () -> prepare ("SELECT COUNT(*) AS num_seguindo FROM seguir WHERE id_usuario = :id_user");
+        $sql->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $sql -> execute();
+
+        $result = $sql->fetch(PDO::FETCH_ASSOC);
+
+        return $result['num_seguindo'];
+
+
+    }
+
+
 }
 
 

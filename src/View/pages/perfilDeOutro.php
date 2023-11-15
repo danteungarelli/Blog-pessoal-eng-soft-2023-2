@@ -53,6 +53,8 @@ ob_start();
     $dados_usuario = $user[0];
     $post = new User_Model();
     $posts = $post->postagens($id_user);
+
+    $model = new User_Model();
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -93,14 +95,36 @@ ob_start();
                     <div class="card-body">
                         <h5 class="card-title">@
                             <?php echo $dados_usuario['nome_user']; ?>
+
+                            <!-- Adicionando Botão de Seguir-->
+                            
+                            <?php
+                            if ($model->verificarSeguir($id_user)) {
+                                $buttonClass = "seguido";
+                                $opcao = "Deixar de Seguir";
+                            } else {
+                                $buttonClass = "nao-seguido";
+                                $opcao = "Seguir";
+                            }
+                            ?>
+
+                            <?php if($id_user != recuperarIDToken()):?>    
+
+                                <form action="seguirUsuario.php?id=<?php echo $id_user?>" method="post">
+                                    <button type="submit" name="seguir" value="seguir" class="seguirUsuario <?php echo $buttonClass; ?>">
+                                         <?php echo $opcao?>
+                                    </button>
+                                </form>
+
+                            <?php endif;?>
                         </h5>
                         <p class="card-text">
                             <?php echo $dados_usuario['bio']; ?>
                         </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Seguidores: 120</li>
-                        <li class="list-group-item">Seguindo: 200</li>
+                        <li class="list-group-item">Seguidores: <?php echo $model->contarSeguidores($id_user)?></li>
+                        <li class="list-group-item">Seguindo: <?php echo $model->contarSeguindo($id_user)?></li>
                     </ul>
                 </div>
             </div>

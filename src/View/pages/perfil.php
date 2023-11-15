@@ -54,7 +54,7 @@ ob_start();
                 
         $id_user = recuperarIDToken();
 
-
+        $model = new User_Model();
         $post = new User_Model();
         $post = $post -> postagens($id_user);
         $user = new User_Model();
@@ -114,8 +114,8 @@ ob_start();
                         <p class="card-text"><?php echo $dados_usuario['bio']; ?></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Seguidores: 120</li>
-                        <li class="list-group-item">Seguindo: 200</li>
+                        <li class="list-group-item">Seguidores: <?php echo $model->contarSeguidores($id_user)?></li>
+                        <li class="list-group-item">Seguindo: <?php echo $model->contarSeguindo($id_user)?></li>
                     </ul>
                 </div>
             </div>

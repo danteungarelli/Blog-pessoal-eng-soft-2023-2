@@ -246,3 +246,14 @@
 .form-control{
     width: 400px;
 }
+
+
+.seguirUsuario.seguido {
+    background-color: #ffffff; 
+    color: #36abf4
+}
+
+.seguirUsuario.nao-seguido {
+    background-color: #36abf4;
+    color: #ffffff;
+}

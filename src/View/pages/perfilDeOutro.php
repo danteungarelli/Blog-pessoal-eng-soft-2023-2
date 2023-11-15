@@ -46,6 +46,7 @@ ob_start();
     <?php
     require_once("../../model/UserModel.php");
     
+    $user_id = recuperarIDToken();
 
     $id_user = $_GET['id_user'];
     $user = new User_Model();
@@ -55,6 +56,19 @@ ob_start();
     $posts = $post->postagens($id_user);
 
     $model = new User_Model();
+
+    // Se o formulário de salvar for enviado
+    if (isset($_GET['salvar']) && isset($_GET['id'])) {
+        $id_post = $_GET['id'];
+        $user_model = new User_Model();
+        $salvou = $user_model->salvarPost($user_id, $id_post);
+
+        if ($salvou) {
+            echo("<script> window.alert('Post salvo com sucesso!')</script>");
+        } else {
+            echo("<script> window.alert('Post removido dos posts salvos!')</script>");
+        }
+    } 
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -78,6 +92,9 @@ ob_start();
                                 <?php echo $resul['cont']; ?>
                             </span> Notificações
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="postsSalvos.php">Posts Salvos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Sair</a>
@@ -148,6 +165,7 @@ ob_start();
                                         <?php echo substr($post['conteudo'], 0, 150); ?>...
                                     </p>
                                     <a href='verPost.php?id_post=<?php echo $post['id']; ?>' class="card-link">Ver mais</a>
+                                    <a href="perfilDeOutro.php?id_user=<?php echo $id_user?>&salvar=true & id=<?php echo $post['id'];?>">Salvar</a>
                                     <?php
                                    $idpost = $post['id'];
                         $idUser = recuperarIDToken();

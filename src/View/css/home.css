@@ -246,3 +246,20 @@
 .form-control{
     width: 400px;
 }
+
+
+.seguirUsuario.seguido {
+    background-color: #ffffff; /* Vermelho quando curtido */
+    color: #36abf4
+}
+
+.seguirUsuario.nao-seguido {
+    background-color: #36abf4;
+    color: #ffffff;
+}
+
+.like-button:hover {
+    background-color: #555;
+    color: #fff;
+    animation: heartBeat 0.5s;
+}

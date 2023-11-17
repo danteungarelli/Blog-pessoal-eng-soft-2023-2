@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Cor de fundo suave */
+}
+
+.tela {
+    display: flex;
+    flex-direction: column; /* Dispor os elementos em coluna */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adiciona algum espaço ao redor dos elementos */
+}
+
+.post_user {
+    background-color: #fff; /* Cor de fundo dos comentários */
+    border: 1px solid #ced4da; /* Borda dos comentários */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 80%;
+    max-width: 600px; /* Largura máxima para melhor leitura */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post_frase {
+    margin: 0;
+    color: #495057; /* Cor do texto dos comentários */
+    font-size: 16px;
+}
+
+.user_name {
+    font-weight: bold; /* Adiciona negrito ao nome do usuário */
+    margin-right: 8px; /* Adiciona margem à direita para separar o nome do conteúdo */
+}
+
+.adicionar-comentario-button {
+    padding: 12px 24px;
+    background-color: #007bff; /* Azul principal */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid #007bff; /* Cor da borda igual ao fundo */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave de cor */
+
+    /* Adiciona efeito de sombra quando hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.adicionar-comentario-button:hover {
+    background-color: #0056b3; /* Cor alterada ao passar o mouse */
+    color: #ecf0f1; /* Cor do texto alterada ao passar o mouse */
+}
+
+/* Adicione um estilo para o título "Comentários" se necessário */
+h1 {
+    color: #007bff; /* Azul principal */
+    margin: 20px 0; /* Adiciona margem superior e inferior ao título */
+}

@@ -18,7 +18,10 @@ if (isset($_GET['id_post'])) {
     $pdo = $conexao->getConnection();
     
 
-    $sql = "SELECT * FROM postagens WHERE id = :id";
+    $sql = "SELECT postagens.*, usuario.nome_user 
+    FROM postagens 
+    INNER JOIN usuario ON postagens.autor_id = id_user
+    WHERE postagens.id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $id_post, PDO::PARAM_INT);
     $stmt->execute();
@@ -69,7 +72,7 @@ if (isset($_GET['id_post'])) {
     <div class="container mt-5">
         <div class="blog-post">
             <h2 class="blog-post-title"><?php echo $post['titulo']; ?></h2>
-            <p class="blog-post-meta"><?php echo $post['data_publicacao']; ?> by <?php echo $post['autor_id']; ?></p>
+            <p class="blog-post-meta"><?php echo $post['data_publicacao']; ?> by <?php echo $post['nome_user']; ?></p>
             <p><?php echo $post['conteudo']; ?></p>
         </div>
     </div>

@@ -355,6 +355,26 @@ class User_Model {
 
     }
 
+    public function perfisSeguidos($id_user) {
+        $conexao = new Connection();
+        $pdo = $conexao->getConnection();
+    
+        $sql = "SELECT id_seguido FROM seguir WHERE id_usuario = :id_user";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        // Verifica se a consulta foi bem-sucedida antes de obter os resultados
+        if ($stmt !== false) {
+            // Retorna os IDs dos perfis seguidos
+            $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return is_array($result) ? $result : [];
+        } else {
+            // Trate o caso em que a consulta falhou (retorna um array vazio ou outro valor apropriado)
+            return [];
+        }
+    }
+
 }
 
 

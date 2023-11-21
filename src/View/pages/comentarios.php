@@ -66,7 +66,7 @@ $post_id = $_GET['id'];
     <div class="tela">
         
          <!-- Botão para Adicionar Comentário -->
-         <a href="http://localhost:8000/src/View/pages/addComentario.php?id_post=<?php echo $post_id?>" class="adicionar-comentario-button">Adicionar Comentário</a>
+         <a href="addComentario.php?id_post=<?php echo $post_id?>" class="adicionar-comentario-button">Adicionar Comentário</a>
         <center><h1>COMENTÁRIOS:</h1></center>
 
         <?php

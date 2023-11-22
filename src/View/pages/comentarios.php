@@ -1,40 +1,34 @@
+
+
 <?php
 session_start();
 ob_start();
-
 require_once("../index.php");
 
-if (!isset($_COOKIE['token']) || !validarToken()) {
+if (!validarToken()) {
+    $_SESSION['msg'] = "<p style='color: #fff;'> Erro: Necessário realizar o login para acessar a página!</p>";
+    echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
     header("Location: login.php");
-    exit;
+    exit();
 }
+require_once("../../model/UserModel.php");
+$post_id = $_GET['id'];
 
-if (isset($_GET['id_post'])) {
-    $id_post = $_GET['id_post'];
+        $comment = new User_Model();
+        $comment = $comment -> comentarios($post_id);
 
-    include_once '../../config/connection.php';
-    
-    $conexao = new Connection();
-    $pdo = $conexao->getConnection();
-    
-
-    $sql = "SELECT postagens.*, usuario.nome_user 
-    FROM postagens 
-    INNER JOIN usuario ON postagens.autor_id = id_user
-    WHERE postagens.id = :id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $id_post, PDO::PARAM_INT);
-    $stmt->execute();
-
-    if ($stmt->rowCount() > 0) {
-        $post = $stmt->fetch(PDO::FETCH_ASSOC);
+        $dados_comments = $comment[0];
+        $comment = new User_Model();
+        $comments = $comment->comentarios($post_id);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Post</title>
+    <title>COMENTÁRIOS</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
     <style>
@@ -42,12 +36,13 @@ if (isset($_GET['id_post'])) {
             font-family: 'Poppins', sans-serif;
         }
     </style>
+
+<link rel="stylesheet" href="../css/comentarios.css">
 </head>
 <body>
-
 <div class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Ver Detalhes</a>
+            <a class="navbar-brand" href="#">Comentários</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -68,24 +63,25 @@ if (isset($_GET['id_post'])) {
         </div>
     </div>
 
+    <div class="tela">
+        
+         <!-- Botão para Adicionar Comentário -->
+         <a href="addComentario.php?id_post=<?php echo $post_id?>" class="adicionar-comentario-button">Adicionar Comentário</a>
+        <center><h1>COMENTÁRIOS:</h1></center>
 
-    <div class="container mt-5">
-        <div class="blog-post">
-            <h2 class="blog-post-title"><?php echo $post['titulo']; ?></h2>
-            <p class="blog-post-meta"><?php echo $post['data_publicacao']; ?> by <?php echo $post['nome_user']; ?></p>
-            <p><?php echo $post['conteudo']; ?></p>
-        </div>
+        <?php
+        foreach ($comments as $comment) {
+        ?>
+            <div class="post_user">
+            <p class="post_frase">
+                  <span class="user_name"><?php echo $comment['nome_user']; ?>:</span>
+                  <?php echo $comment['conteudo']; ?>
+              </p>
+          </div>
+        <?php
+        }
+        ?>
+
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-<?php
-    } else {
-        echo "Post não encontrado";
-    }
-} else {
-    echo "ID do post não especificado na URL";
-}
-?>

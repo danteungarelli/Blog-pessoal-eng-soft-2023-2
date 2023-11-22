@@ -46,6 +46,7 @@ ob_start();
     <?php
     require_once("../../model/UserModel.php");
     
+    $user_id = recuperarIDToken();
 
     $id_user = $_GET['id_user'];
     $user = new User_Model();
@@ -53,6 +54,21 @@ ob_start();
     $dados_usuario = $user[0];
     $post = new User_Model();
     $posts = $post->postagens($id_user);
+
+    $model = new User_Model();
+
+    // Se o formulário de salvar for enviado
+    if (isset($_GET['salvar']) && isset($_GET['id'])) {
+        $id_post = $_GET['id'];
+        $user_model = new User_Model();
+        $salvou = $user_model->salvarPost($user_id, $id_post);
+
+        if ($salvou) {
+            echo("<script> window.alert('Post salvo com sucesso!')</script>");
+        } else {
+            echo("<script> window.alert('Post removido dos posts salvos!')</script>");
+        }
+    } 
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -78,6 +94,9 @@ ob_start();
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="postsSalvos.php">Posts Salvos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="logout.php">Sair</a>
                     </li>
                 </ul>
@@ -89,18 +108,72 @@ ob_start();
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
+                <?php
+                    if ($dados_usuario['id_user'] == 4) {
+                ?>
+                <img src="https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/img-dante.jpeg?raw=true" class="card-img-top" alt="Profile Image">
+                <?php
+                    } else {
+                    ?>
                     <img src="https://via.placeholder.com/70" class="card-img-top" alt="Profile Image">
+                    <?php
+                    }
+                ?>
                     <div class="card-body">
                         <h5 class="card-title">@
                             <?php echo $dados_usuario['nome_user']; ?>
+
+                            <!-- Adicionando Botão de Seguir-->
+                            
+                            <?php
+                            if ($model->verificarSeguir($id_user)) {
+                                $buttonClass = "seguido";
+                                $opcao = "Deixar de Seguir";
+                            } else {
+                                $buttonClass = "nao-seguido";
+                                $opcao = "Seguir";
+                            }
+                            ?>
+
+                            <?php if($id_user != recuperarIDToken()):?>    
+
+                                <form action="seguirUsuario.php?id=<?php echo $id_user?>" method="post">
+                                    <button type="submit" name="seguir" value="seguir" class="seguirUsuario <?php echo $buttonClass; ?>">
+                                         <?php echo $opcao?>
+                                    </button>
+                                </form>
+
+                            <?php endif;?>
+
+                            <?php
+
+                            $id_usuario_silenciado = $dados_usuario['id_user'];
+
+                            if ($model->verificarSilenciado($id_user, $id_usuario_silenciado)) {
+                                $buttonClassSilenciar = "silenciado";
+                                $opcaoSilenciar = "Desilenciar";
+                            } else {
+                                $buttonClassSilenciar = "nao-silenciado";
+                                $opcaoSilenciar = "Silenciar";
+                            }
+                            ?>
+
+                            <?php if($id_user != recuperarIDToken()):?>
+                                <form action="silenciarUsuario.php?id=<?php echo $id_user?>" method="post">
+                                    <button type="submit" name="silenciar" value="silenciar" class="silenciarUsuario <?php echo $buttonClassSilenciar; ?>">
+                                        <?php echo $opcaoSilenciar?>
+                                    </button>
+                                </form>
+                            <?php endif;?>
+                            
                         </h5>
                         <p class="card-text">
                             <?php echo $dados_usuario['bio']; ?>
                         </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Seguidores: 120</li>
-                        <li class="list-group-item">Seguindo: 200</li>
+                        <li class="list-group-item">Seguidores: <?php echo $model->contarSeguidores($id_user)?></li>
+                        <li class="list-group-item">Seguindo: <?php echo $model->contarSeguindo($id_user)?></li>
                     </ul>
                 </div>
             </div>
@@ -124,6 +197,13 @@ ob_start();
                                         <?php echo substr($post['conteudo'], 0, 150); ?>...
                                     </p>
                                     <a href='verPost.php?id_post=<?php echo $post['id']; ?>' class="card-link">Ver mais</a>
+                                    <a href="perfilDeOutro.php?id_user=<?php echo $id_user?>&salvar=true & id=<?php echo $post['id'];?>">Salvar</a>
+                                    <a href="comentarios.php?id=<?php echo $post['id']?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                          <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
+                        </svg>
+                        </a>
                                     <?php
                                    $idpost = $post['id'];
                         $idUser = recuperarIDToken();

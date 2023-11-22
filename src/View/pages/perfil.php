@@ -54,7 +54,7 @@ ob_start();
                 
         $id_user = recuperarIDToken();
 
-
+        $model = new User_Model();
         $post = new User_Model();
         $post = $post -> postagens($id_user);
         $user = new User_Model();
@@ -71,6 +71,19 @@ ob_start();
         // Recuperar todos os posts do usuário
         $post = new User_Model();
         $posts = $post->postagens($id_user);
+
+    // Se o formulário de salvar for enviado
+    if (isset($_GET['salvar']) && isset($_GET['id'])) {
+        $id_post = $_GET['id'];
+        $user_model = new User_Model();
+        $salvou = $user_model->salvarPost($id_user, $id_post);
+
+        if ($salvou) {
+            echo("<script> window.alert('Post salvo com sucesso!')</script>");
+        } else {
+            echo("<script> window.alert('Post removido dos posts salvos!')</script>");
+        }
+    } 
 
     ?>
 
@@ -95,6 +108,9 @@ ob_start();
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="postsSalvos.php">Posts Salvos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="logout.php">Sair</a>
                     </li>
                 </ul>
@@ -114,8 +130,8 @@ ob_start();
                         <p class="card-text"><?php echo $dados_usuario['bio']; ?></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Seguidores: 120</li>
-                        <li class="list-group-item">Seguindo: 200</li>
+                        <li class="list-group-item">Seguidores: <?php echo $model->contarSeguidores($id_user)?></li>
+                        <li class="list-group-item">Seguindo: <?php echo $model->contarSeguindo($id_user)?></li>
                     </ul>
                 </div>
             </div>
@@ -135,6 +151,13 @@ ob_start();
                                 <a href='verPost.php?id_post=<?php echo $post['id']; ?>' class="card-link">Ver mais</a>
                                 <a href='edit.php?id=<?php echo $post['id']; ?>' class="card-link">Editar</a>
                                 <a href='confirmarExclusao.php?id=<?php echo $post['id']; ?>' class="card-link">Excluir</a>
+                                <a href="perfil.php?salvar=true & id=<?php echo $post['id'];?>">Salvar</a>
+                                <a href="comentarios.php?id=<?php echo $post['id']?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                          <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
+                        </svg>
+                        </a>
                             </div>
                         </div>
                     </div>

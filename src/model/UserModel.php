@@ -391,6 +391,7 @@ class User_Model {
         $sql->bindParam(':id_seguido', $id_seguido, PDO::PARAM_INT);
         $sql->execute();
     }
+    
     function verificarSilenciado($usuario_id, $usuario_silenciado_id) {
         $connect = new Connection();
     

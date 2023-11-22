@@ -139,6 +139,8 @@ ob_start();
 
                             $id_usuario_silenciado = $dados_usuario['id_user'];
 
+                            var_dump($id_user, $id_usuario_silenciado);
+
                             if ($model->verificarSilenciado($id_user, $id_usuario_silenciado)) {
                                 $buttonClassSilenciar = "silenciado";
                                 $opcaoSilenciar = "Desilenciar";

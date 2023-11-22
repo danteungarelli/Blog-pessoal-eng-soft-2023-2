@@ -108,7 +108,17 @@ ob_start();
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
+                <?php
+                    if ($dados_usuario['id_user'] == 4) {
+                ?>
+                <img src="https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/img-dante.jpeg?raw=true" class="card-img-top" alt="Profile Image">
+                <?php
+                    } else {
+                    ?>
                     <img src="https://via.placeholder.com/70" class="card-img-top" alt="Profile Image">
+                    <?php
+                    }
+                ?>
                     <div class="card-body">
                         <h5 class="card-title">@
                             <?php echo $dados_usuario['nome_user']; ?>

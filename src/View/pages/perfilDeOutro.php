@@ -108,7 +108,17 @@ ob_start();
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
+                <?php
+                    if ($dados_usuario['id_user'] == 4) {
+                ?>
+                <img src="https://github.com/Daniel-Noleto/IMGs-BlogPessoal/blob/main/img-dante.jpeg?raw=true" class="card-img-top" alt="Profile Image">
+                <?php
+                    } else {
+                    ?>
                     <img src="https://via.placeholder.com/70" class="card-img-top" alt="Profile Image">
+                    <?php
+                    }
+                ?>
                     <div class="card-body">
                         <h5 class="card-title">@
                             <?php echo $dados_usuario['nome_user']; ?>
@@ -134,6 +144,28 @@ ob_start();
                                 </form>
 
                             <?php endif;?>
+
+                            <?php
+
+                            $id_usuario_silenciado = $dados_usuario['id_user'];
+
+                            if ($model->verificarSilenciado($id_user, $id_usuario_silenciado)) {
+                                $buttonClassSilenciar = "silenciado";
+                                $opcaoSilenciar = "Desilenciar";
+                            } else {
+                                $buttonClassSilenciar = "nao-silenciado";
+                                $opcaoSilenciar = "Silenciar";
+                            }
+                            ?>
+
+                            <?php if($id_user != recuperarIDToken()):?>
+                                <form action="silenciarUsuario.php?id=<?php echo $id_user?>" method="post">
+                                    <button type="submit" name="silenciar" value="silenciar" class="silenciarUsuario <?php echo $buttonClassSilenciar; ?>">
+                                        <?php echo $opcaoSilenciar?>
+                                    </button>
+                                </form>
+                            <?php endif;?>
+                            
                         </h5>
                         <p class="card-text">
                             <?php echo $dados_usuario['bio']; ?>

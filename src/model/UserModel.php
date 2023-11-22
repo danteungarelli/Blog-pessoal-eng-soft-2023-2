@@ -374,6 +374,48 @@ class User_Model {
             return [];
         }
     }
+    function silenciarUsuario($id_usuario, $id_seguido) {
+        $connect = new Connection();
+    
+        $sql = $connect->getConnection()->prepare("UPDATE seguir SET silenciado = TRUE WHERE id_usuario = :usuario AND id_seguido = :id_seguido");
+        $sql->bindParam(':usuario', $id_usuario, PDO::PARAM_INT);
+        $sql->bindParam(':id_seguido', $id_seguido, PDO::PARAM_INT);
+        $sql->execute();
+    }
+    
+    function desilenciarUsuario($id_usuario, $id_seguido) {
+        $connect = new Connection();
+    
+        $sql = $connect->getConnection()->prepare("UPDATE seguir SET silenciado = FALSE WHERE id_usuario = :usuario AND id_seguido = :id_seguido");
+        $sql->bindParam(':usuario', $id_usuario, PDO::PARAM_INT);
+        $sql->bindParam(':id_seguido', $id_seguido, PDO::PARAM_INT);
+        $sql->execute();
+    }
+
+    function verificarSilenciado($usuario_id, $usuario_silenciado_id) {
+        $connect = new Connection();
+        $usuario = recuperarIDToken();
+    
+        $query = "SELECT silenciado FROM seguir WHERE id_usuario = :usuario_id AND id_seguido = :usuario_silenciado_id";
+        $stmt = $connect->getConnection()->prepare($query);
+        $stmt->bindParam(':usuario_id', $usuario, PDO::PARAM_INT);
+        $stmt->bindParam(':usuario_silenciado_id', $usuario_silenciado_id, PDO::PARAM_INT);
+    
+        try {
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if ($result) {
+                return (bool)$result['silenciado'];
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            error_log("Erro ao executar a consulta SQL: " . $e->getMessage());
+            return false;
+        }
+    }
+    
 
 }
 

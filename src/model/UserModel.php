@@ -391,24 +391,32 @@ class User_Model {
         $sql->bindParam(':id_seguido', $id_seguido, PDO::PARAM_INT);
         $sql->execute();
     }
-    
+
     function verificarSilenciado($usuario_id, $usuario_silenciado_id) {
         $connect = new Connection();
+        $usuario = recuperarIDToken();
     
         $query = "SELECT silenciado FROM seguir WHERE id_usuario = :usuario_id AND id_seguido = :usuario_silenciado_id";
         $stmt = $connect->getConnection()->prepare($query);
-        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $stmt->bindParam(':usuario_id', $usuario, PDO::PARAM_INT);
         $stmt->bindParam(':usuario_silenciado_id', $usuario_silenciado_id, PDO::PARAM_INT);
-        $stmt->execute();
     
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        try {
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
-        if ($result) {
-            return (bool)$result['silenciado'];
-        } else {
-            return false; 
+            if ($result) {
+                var_dump($result);
+                return (bool)$result['silenciado'];
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            error_log("Erro ao executar a consulta SQL: " . $e->getMessage());
+            return false;
         }
     }
+    
 
 }
 

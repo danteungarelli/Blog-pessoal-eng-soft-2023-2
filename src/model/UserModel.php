@@ -406,7 +406,6 @@ class User_Model {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
             if ($result) {
-                var_dump($result);
                 return (bool)$result['silenciado'];
             } else {
                 return false;

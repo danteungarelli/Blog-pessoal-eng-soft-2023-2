@@ -177,14 +177,21 @@ if (!empty($_GET['search'])) {
                         echo "<h2>Ver Todos os Posts</h2>";
                     }
 
-                    // Loop para exibir todos os posts do usuário
                     foreach ($posts as $post) {
+
+                        $id_autor = $post['autor_id'];
+                        if ($perfil->verificarSilenciado($id_user, $id_autor)) {
+
+                            continue;
+                        }
+                    
                         if ($post['autor_id'] !== $id_user) {
                             $perfilSeguido = $perfis->usuarios($post['autor_id']);
-                 
-                         }
+                        }
+                    
                         if (!$assuntoSelecionado || $post['assunto'] === $assuntoSelecionado) {
-                ?>
+
+                            ?>
             <div class="col-md-6 mb-4">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">

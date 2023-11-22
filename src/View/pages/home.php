@@ -178,7 +178,7 @@ if (!empty($_GET['search'])) {
                     }
 
                     foreach ($posts as $post) {
-
+                        $perfil = new User_Model();
                         $id_autor = $post['autor_id'];
                         if ($perfil->verificarSilenciado($id_user, $id_autor)) {
 

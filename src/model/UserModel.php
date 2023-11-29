@@ -1,9 +1,9 @@
 <?php
 
 
-require_once ("../../config/connection.php");
+require_once __DIR__ . '../../config/connection.php';
 
-require_once ("../../View/index.php");
+require_once __DIR__.'../../View/index.php';
 
 class User_Model {
 

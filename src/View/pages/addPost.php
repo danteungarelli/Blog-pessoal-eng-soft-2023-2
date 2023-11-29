@@ -3,30 +3,16 @@ session_start();
 
 ob_start();
 
-require_once ("../index.php");
+require_once(__DIR__ . '/../../index.php');
 
-if(!validarToken()){
-    $_SESSION['msg'] = "<p style='color: #f00;'> Erro: Necessário realizar o login para acessar adicionar uma publicação!</p>";
-    echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
-    header("Location: login.php");
-    exit();
-}
-
-include_once '../../config/connection.php';
-
-if (isset($_POST['SubmitPost'])) {
-    $titulo = $_POST['titulo'];
-    $conteudo = $_POST['conteudo'];
-    $autor_id = $user_id;
-    $assunto = $_POST['assunto'];
-    $slug = $_POST['slug'];
+function addPost(string $titulo, string $conteudo, string $assunto, string $slug): void {
 
     $user_id = recuperarIDToken();
 
     $conexao = new Connection();
     $pdo = $conexao->getConnection();
 
-    $autor_id = $user_id; // para pegar o id automaticamente
+    $autor_id = $user_id;
 
     $sql = "INSERT INTO postagens (titulo, conteudo, autor_id, assunto, slug) VALUES (:titulo, :conteudo, :autor_id, :assunto, :slug)";
     $stmt = $pdo->prepare($sql);
@@ -43,11 +29,25 @@ if (isset($_POST['SubmitPost'])) {
     } else {
         $_SESSION['msg'] = "<p style='color: #f00;'>Erro ao adicionar postagem.</p>";
     }
-    
+
     header("Location: addPost.php");
     exit();
 }
+
+if (!validarToken()) {
+    $_SESSION['msg'] = "<p style='color: #f00;'> Erro: Necessário realizar o login para acessar adicionar uma publicação!</p>";
+    echo("<script> window.alert('Erro: Necessário realizar o login para acessar a página!')</script>");
+    header("Location: login.php");
+    exit();
+}
+
+include_once '../../config/connection.php';
+
+if (isset($_POST['SubmitPost'])) {
+    addPost($_POST['titulo'], $_POST['conteudo'], $_POST['assunto'], $_POST['slug']);
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
